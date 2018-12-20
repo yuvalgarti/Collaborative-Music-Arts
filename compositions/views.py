@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CompositionForm, VariationForm, TrackForm
 from .models import Composition, Variation, Track
 from django.http import HttpResponse
@@ -43,8 +43,11 @@ def create_track(request):
     if request.method == 'POST':
         form = TrackForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return index(request)
+            track = form.save(commit=False)
+            track.creator = request.user
+            track.save()
+            form.save_m2m()
+            return redirect('index')
     else:
         form = TrackForm()
     return render(request, 'compositions/create_track.html', {'form': form})
@@ -53,5 +56,12 @@ def create_track(request):
 def show_composition(request, composition_id):
     return render(request, 'compositions/show_composition.html', context={
         'composition': Composition.objects.get(id=composition_id),
-        'variations': Variation.objects.filter(composition__id=composition_id)
+        'variations': Variation.objects.filter(composition__id=composition_id),
+        'tracks': Track.objects.filter(composition__id=composition_id)
     })
+
+
+def show_variation(request, variation_id):
+    return render(request, 'compositions/show_variation.html', context={
+            'tracks': Variation.objects.get(id=variation_id).tracks.all()
+        })

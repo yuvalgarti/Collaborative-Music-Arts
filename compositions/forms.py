@@ -11,7 +11,7 @@ class CompositionForm(forms.ModelForm):
 class VariationForm(forms.ModelForm):
     class Meta:
         model = Variation
-        fields = ['name', 'composition']
+        fields = ['name', 'composition', 'tracks']
 
 
 class TrackForm(forms.ModelForm):

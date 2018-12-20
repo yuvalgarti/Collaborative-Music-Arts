@@ -9,7 +9,7 @@
     <ol>
     {% for composition in compositions %}
     <li>
-        <h1> {{ composition.name }} </h1>
+        <h1> <a href="composition/{{ composition.id }}"> {{ composition.name }} </a></h1>
     <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i>
     </li>
     {% endfor %}
