@@ -32,6 +32,7 @@ def create_variation(request):
             vari = form.save(commit=False)
             vari.creator = request.user
             vari.save()
+            form.save_m2m()
             return index(request)
     else:
         form = VariationForm()
@@ -46,7 +47,6 @@ def create_track(request):
             track = form.save(commit=False)
             track.creator = request.user
             track.save()
-            form.save_m2m()
             return redirect('index')
     else:
         form = TrackForm()

@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    {% load static %}
+    	<script src="{% static 'Tone.js' %}"></script>
+	<script src="{% static 'jquery.min.js' %}"></script>
+	<script src="{%static 'draggabilly.js'%}"></script>
+	<script src="{% static 'StartAudioContext.js' %}"></script>
+	<script src="{% static 'Interface.js' %}"></script>
+	<script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'examples.css' %}">
 </head>
 <body>
-
+<!--
 {% for track in tracks %}
         <h3> {{ track.instrument }} - <i> {{ track.creator.username }}</i> </h3> <br>
         {% load static %}
@@ -14,6 +24,135 @@
             <source src="{{ MEDIA_PREFIX }}{{ track.track_file }}" type="audio/mp3">
         </audio>
     {% endfor %}
+
+-->
+
+
+	<style type="text/css">
+		img {
+			width: 300px!important;
+		}
+
+		.y {
+			height: 200px!important;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#Sliders {
+			position: relative;
+			width: 100%;
+			display: inline-block;
+		}
+
+		.Group {
+			width: calc(100%/3 - 6px);
+			margin-left: 3px;
+			height: 100%;
+			float: left;
+		}
+
+		@media (max-width: 500px) {
+			.Group {
+				width: calc(50% - 3px);
+			}
+		}
+
+		.Title {
+			width: 100%;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 1.5em;
+			margin-bottom: 10px;
+		}
+
+		.Group .Button {
+			width: 100%;
+		}
+
+		.Button {
+			clear: both;
+			margin-top: 5px;
+		}
+	</style>
+
+<div id="Content">
+		<div id="Sliders"></div>
+	</div>
+
+	<script>
+        {%  get_media_prefix as MEDIA_PREFIX %}
+		function makeFader(track, name, time){
+			var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track).sync().start(time);
+			player.loop = true;
+			var soloCtrl = new Tone.Solo();
+			var panVol = new Tone.PanVol();
+			player.chain(panVol, soloCtrl, Tone.Master);
+
+			var container = $("<div>", {
+				"class" : "Group"
+			}).appendTo('#Sliders');
+
+			$("<div>", {
+				"class" : "Title",
+				"text" : name
+			}).appendTo(container);
+
+			Interface.Slider({
+				param : "volume",
+				name : "volume",
+				parent : container,
+				tone : panVol,
+				axis : "y",
+				exp : 0.5,
+				max : 6,
+				min : -60,
+			});
+
+			Interface.Slider({
+				param : "pan",
+				name : "pan",
+				parent : container,
+				tone : panVol,
+				min : -1,
+				max : 1,
+			});
+
+			Interface.Button({
+				parent: container,
+				type : "toggle",
+				text : "solo",
+				activeText : "solo",
+				start : function(){
+					soloCtrl.solo = true;
+				},
+				end : function(){
+					soloCtrl.solo = false;
+				},
+			});
+		}
+        {% for track in tracks %}
+           // var number = parseInt($(this).find('#{{ track }}').text(), 10);
+            makeFader("{{ track.track_file }}", "{{ track.instrument }}", 0);
+
+        {% endfor %}
+
+		Interface.Button({
+			type : "toggle",
+			text : "Start",
+			activeText : "Stop",
+			start : function(){
+			    Tone.Transport.start()
+                if (Tone.context.state !== 'running') {
+                    Tone.context.resume();
+                }
+			},
+			end : function(){
+				Tone.Transport.stop()
+			},
+		});
+
+	</script>
 
 </body>
 </html>
