@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Show Composition</title>
 </head>
 <body>
-    <h1> Home Page </h1>
-    <ol>
-    {% for composition in compositions %}
-    <li>
-        <h1> {{ composition.name }} </h1>
+    <h1> {{ composition.name }} </h1>
     <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i>
-    </li>
+    {% for variation in variations %}
+        <div> <h3> {{ variation.name }} - <i> {{ variation.creator.username }}</i> </h3></div>
     {% endfor %}
-</ol>
+
 </body>
 </html>
