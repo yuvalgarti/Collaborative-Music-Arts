@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block Title %}
+    Create Variation
+{% endblock %}
+{% block Content %}
 <form action="{% url 'create_variation' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
-</body>
-</html>
+{% endblock %}

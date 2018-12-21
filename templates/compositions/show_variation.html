@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
 
+{% block Title %}
+    Variation
+{% endblock %}
+{% block Head %}
     {% load static %}
     	<script src="{% static 'Tone.js' %}"></script>
 	<script src="{% static 'jquery.min.js' %}"></script>
@@ -13,22 +13,10 @@
 	<script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'examples.css' %}">
-</head>
-<body>
-<!--
-{% for track in tracks %}
-        <h3> {{ track.instrument }} - <i> {{ track.creator.username }}</i> </h3> <br>
-        {% load static %}
-        {%  get_media_prefix as MEDIA_PREFIX %}
-        <audio controls>
-            <source src="{{ MEDIA_PREFIX }}{{ track.track_file }}" type="audio/mp3">
-        </audio>
-    {% endfor %}
+{% endblock %}
+{% block Content %}
 
--->
-
-
-	<style type="text/css">
+    <style type="text/css">
 		img {
 			width: 300px!important;
 		}
@@ -185,5 +173,4 @@
 
 	</script>
 
-</body>
-</html>
+{% endblock %}

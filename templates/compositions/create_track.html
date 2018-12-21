@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block Title %}
+    Add Track
+{% endblock %}
+{% block Content %}
 <form action="{% url 'create_track' %}" method="post" enctype=multipart/form-data>
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
-</body>
-</html>
+{% endblock %}
