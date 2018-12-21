@@ -82,13 +82,23 @@
 
 	<script>
         {%  get_media_prefix as MEDIA_PREFIX %}
-		function makeFader(track, name, time){
-			var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track).sync().start(time);
-			player.loop = true;
+        var all_synced = [];
+        var all_ids = [];
+        var all_players = [];
+		function makeFader(track, name, id, time){
+			var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track);
+			//player.loop = true;
 			var soloCtrl = new Tone.Solo();
 			var panVol = new Tone.PanVol();
 			player.chain(panVol, soloCtrl, Tone.Master);
-
+            all_synced.push(player);
+            all_ids.push(id);
+            all_players.push({
+                "player": player,
+                "id": id,
+                "panVol": panVol,
+                "solo": soloCtrl
+            });
 			var container = $("<div>", {
 				"class" : "Group"
 			}).appendTo('#Sliders');
@@ -96,6 +106,20 @@
 			$("<div>", {
 				"class" : "Title",
 				"text" : name
+			}).appendTo(container);
+
+			$("<p>", {
+				"id" : "timingValue" + id,
+                "text": "0"
+			}).appendTo(container);
+
+			$("<input>", {
+				"type" : "range",
+				"id" : "timing" + id,
+                "min": "0",
+                "max": "20",
+                "value": "0",
+                "onchange": "document.getElementById('timingValue" + id + "').innerHTML = this.value;"
 			}).appendTo(container);
 
 			Interface.Slider({
@@ -133,7 +157,7 @@
 		}
         {% for track in tracks %}
            // var number = parseInt($(this).find('#{{ track }}').text(), 10);
-            makeFader("{{ track.track_file }}", "{{ track.instrument }}", 0);
+            makeFader("{{ track.track_file }}", "{{ track.instrument }}", {{ track.id }}, 0);
 
         {% endfor %}
 
@@ -142,7 +166,14 @@
 			text : "Start",
 			activeText : "Stop",
 			start : function(){
-			    Tone.Transport.start()
+			    for (var i = 0; i < all_players.length; i++){
+			        var timing_id = $("#timing" + all_players[i]['id']).val();
+			        console.log(all_players[i]['panVol'].volume.value);
+			        all_players[i]['player'].unsync();
+                    all_players[i]['player'].sync().start(timing_id);
+                }
+
+			    Tone.Transport.start();
                 if (Tone.context.state !== 'running') {
                     Tone.context.resume();
                 }
