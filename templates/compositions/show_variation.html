@@ -5,80 +5,82 @@
 {% endblock %}
 {% block Head %}
     {% load static %}
-    	<script src="{% static 'Tone.js' %}"></script>
-	<script src="{% static 'jquery.min.js' %}"></script>
-	<script src="{%static 'draggabilly.js'%}"></script>
-	<script src="{% static 'StartAudioContext.js' %}"></script>
-	<script src="{% static 'Interface.js' %}"></script>
-	<script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
+    <script src="{% static 'js/Tone.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/draggabilly.js' %}"></script>
+    <script src="{% static 'js/StartAudioContext.js' %}"></script>
+    <script src="{% static 'js/Interface.js' %}"></script>
+    <script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'examples.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/examples.css' %}">
 {% endblock %}
 {% block Content %}
-
+    <input id="WhenToStart" type="number" min="0" max="600" step="0.01" value="0">
     <style type="text/css">
-		img {
-			width: 300px!important;
-		}
+        img {
+            width: 300px !important;
+        }
 
-		.y {
-			height: 200px!important;
-			margin-left: auto;
-			margin-right: auto;
-		}
+        .y {
+            height: 200px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-		#Sliders {
-			position: relative;
-			width: 100%;
-			display: inline-block;
-		}
+        #Sliders {
+            position: relative;
+            width: 100%;
+            display: inline-block;
+        }
 
-		.Group {
-			width: calc(100%/3 - 6px);
-			margin-left: 3px;
-			height: 100%;
-			float: left;
-		}
+        .Group {
+            width: calc(100% / 3 - 6px);
+            margin-left: 3px;
+            height: 100%;
+            float: left;
+        }
 
-		@media (max-width: 500px) {
-			.Group {
-				width: calc(50% - 3px);
-			}
-		}
+        @media (max-width: 500px) {
+            .Group {
+                width: calc(50% - 3px);
+            }
+        }
 
-		.Title {
-			width: 100%;
-			text-align: center;
-			text-transform: uppercase;
-			font-size: 1.5em;
-			margin-bottom: 10px;
-		}
+        .Title {
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
 
-		.Group .Button {
-			width: 100%;
-		}
+        .Group .Button {
+            width: 100%;
+        }
 
-		.Button {
-			clear: both;
-			margin-top: 5px;
-		}
-	</style>
+        .Button {
+            clear: both;
+            margin-top: 5px;
+        }
+    </style>
 
-<div id="Content">
-		<div id="Sliders"></div>
-	</div>
+    <div id="Content">
+        <div id="Sliders"></div>
+    </div>
 
-	<script>
+    <script>
         {%  get_media_prefix as MEDIA_PREFIX %}
         var all_synced = [];
         var all_ids = [];
         var all_players = [];
-		function makeFader(track, name, id, time){
-			var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track);
-			//player.loop = true;
-			var soloCtrl = new Tone.Solo();
-			var panVol = new Tone.PanVol();
-			player.chain(panVol, soloCtrl, Tone.Master);
+
+
+        function makeFader(track, name, id) {
+            var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track);
+            //player.loop = true;
+            var soloCtrl = new Tone.Solo();
+            var panVol = new Tone.PanVol();
+            player.chain(panVol, soloCtrl, Tone.Master);
             all_synced.push(player);
             all_ids.push(id);
             all_players.push({
@@ -87,90 +89,140 @@
                 "panVol": panVol,
                 "solo": soloCtrl
             });
-			var container = $("<div>", {
-				"class" : "Group"
-			}).appendTo('#Sliders');
+            var container = $("<div>", {
+                "class": "Group"
+            }).appendTo('#Sliders');
 
-			$("<div>", {
-				"class" : "Title",
-				"text" : name
-			}).appendTo(container);
+            $("<div>", {
+                "class": "Title",
+                "text": name
+            }).appendTo(container);
 
-			$("<p>", {
-				"id" : "timingValue" + id,
-                "text": "0"
-			}).appendTo(container);
+            $("<div>", {
+                "align": "center",
+                "id": "StartStopInputs" + id
+            }).appendTo(container);
 
-			$("<input>", {
-				"type" : "range",
-				"id" : "timing" + id,
+            var CurrentStartStopInputs = $("#StartStopInputs" + id);
+
+            $("<span>", {
+                "text": "Start:"
+            }).appendTo(CurrentStartStopInputs);
+
+            ($("<input>", {
+                "type": "number",
+                "id": "timingStart" + id,
                 "min": "0",
-                "max": "20",
+                "max": "600",
                 "value": "0",
-                "onchange": "document.getElementById('timingValue" + id + "').innerHTML = this.value;"
-			}).appendTo(container);
+                "step": "0.01",
+            })).appendTo(CurrentStartStopInputs);
 
-			Interface.Slider({
-				param : "volume",
-				name : "volume",
-				parent : container,
-				tone : panVol,
-				axis : "y",
-				exp : 0.5,
-				max : 6,
-				min : -60,
-			});
+            //$("<br><br>").appendTo(CurrentStartStopInputs);
 
-			Interface.Slider({
-				param : "pan",
-				name : "pan",
-				parent : container,
-				tone : panVol,
-				min : -1,
-				max : 1,
-			});
+            $("<span>", {
+                "text": " Stop:"
+            }).appendTo(CurrentStartStopInputs);
 
-			Interface.Button({
-				parent: container,
-				type : "toggle",
-				text : "solo",
-				activeText : "solo",
-				start : function(){
-					soloCtrl.solo = true;
-				},
-				end : function(){
-					soloCtrl.solo = false;
-				},
-			});
-		}
+            ($("<input>", {
+                "type": "number",
+                "id": "timingStop" + id,
+                "min": "0",
+                "max": "600",
+                //"value": "0",
+                "step": "0.01",
+            })).appendTo(CurrentStartStopInputs);
+            $("<br><br>").appendTo(CurrentStartStopInputs);
+
+            Interface.Slider({
+                param: "volume",
+                name: "volume",
+                parent: container,
+                tone: panVol,
+                axis: "y",
+                exp: 0.5,
+                max: 6,
+                min: -60,
+            });
+
+            Interface.Slider({
+                param: "pan",
+                name: "pan",
+                parent: container,
+                tone: panVol,
+                min: -1,
+                max: 1,
+            });
+
+            Interface.Button({
+                parent: container,
+                type: "toggle",
+                text: "solo",
+                activeText: "solo",
+                start: function () {
+                    soloCtrl.solo = true;
+                },
+                end: function () {
+                    soloCtrl.solo = false;
+                },
+            });
+
+            Interface.Button({
+                parent: container,
+                type: "toggle",
+                text: "mute",
+                activeText: "mute",
+                start: function () {
+                    player.mute = true;
+                },
+                end: function () {
+                    player.mute = false;
+                },
+            });
+        }
         {% for track in tracks %}
-           // var number = parseInt($(this).find('#{{ track }}').text(), 10);
-            makeFader("{{ track.track_file }}", "{{ track.instrument }}", {{ track.id }}, 0);
+            // var number = parseInt($(this).find('#{{ track }}').text(), 10);
+            makeFader("{{ track.track_file }}", "{{ track.instrument }}", {{ track.id }});
 
         {% endfor %}
 
-		Interface.Button({
-			type : "toggle",
-			text : "Start",
-			activeText : "Stop",
-			start : function(){
-			    for (var i = 0; i < all_players.length; i++){
-			        var timing_id = $("#timing" + all_players[i]['id']).val();
-			        console.log(all_players[i]['panVol'].volume.value);
-			        all_players[i]['player'].unsync();
-                    all_players[i]['player'].sync().start(timing_id);
+
+        var timeSlider;
+        timeSlider = Interface.Slider({
+            name: "Start At",
+            max: 50,
+            drag: function (val) {
+                Tone.Transport.seconds = val;
+            }
+        });
+
+        Interface.Button({
+            type: "toggle",
+            text: "Start",
+            activeText: "Stop",
+            start: function () {
+                for (var i = 0; i < all_players.length; i++) {
+                    var timingStart_id = $("#timingStart" + all_players[i]['id']).val();
+                    var timingStop_id = $("#timingStop" + all_players[i]['id']).val();
+                    var whenToStart_id = $("#WhenToStart" + all_players[i]['id']).val();
+                    all_players[i]['player'].unsync();
+                    all_players[i]['player'].sync().start(timingStart_id);
+                    if (timingStop_id !== "") {
+                        all_players[i]['player'].sync().stop(timingStop_id);
+                    }
+                    //all_players[i]['player'].sync().stop(5);
                 }
 
-			    Tone.Transport.start();
+                //Tone.Transport.seconds = $("#WhenToStart").val();
+                Tone.Transport.start();
                 if (Tone.context.state !== 'running') {
                     Tone.context.resume();
                 }
-			},
-			end : function(){
-				Tone.Transport.stop()
-			},
-		});
-
-	</script>
+            },
+            end: function () {
+                Tone.Transport.stop();
+            },
+        });
+    </script>
 
 {% endblock %}

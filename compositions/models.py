@@ -7,6 +7,7 @@ class Composition(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
+    thumbnail = models.ImageField(upload_to='thumbnails')
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):

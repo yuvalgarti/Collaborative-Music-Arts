@@ -4,11 +4,14 @@
 {% endblock %}
 {% block Content %}
     <h1>{{ composition.name }}</h1>
-    <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i>
+    <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i> <br>
+    <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for this Composition</a>
+    <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this Composition</a>
     <br><br>
     <h2> All available tracks for this composition: </h2> <br>
+
     {% for track in tracks %}
-        <h3> {{ track.instrument }} - <i> {{ track.creator.username }}</i> </h3> <br>
+        <h5> {{ track.instrument }} - <i> {{ track.creator.username }}</i> </h5> <br>
         {% load static %}
         {%  get_media_prefix as MEDIA_PREFIX %}
         <audio controls>

@@ -4,9 +4,24 @@
 {% endblock %}
 
 {% block Content %}
-<form action="{% url 'create_composition' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+    <form action="{% url 'create_composition' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="text-center">
+            <h1 class="h3 mb-3 font-weight-normal">Create a new Composition</h1>
+
+            {% for field in form %}
+
+                <div class="control-group col-sm-2 offset-sm-5">
+                    <label class="control-label">{{ field.label }}:</label>
+                    <div class="controls">{{ field }}</div>
+                    {% if field.errors %}
+                        {{ field.errors }}
+                    {% endif %}
+                </div>
+
+                <br>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </form>
 {% endblock %}

@@ -3,7 +3,7 @@
     Create Variation
 {% endblock %}
 {% block Content %}
-<form action="{% url 'create_variation' %}" method="post">
+<form action="{% url 'create_variation' composition_id%}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
