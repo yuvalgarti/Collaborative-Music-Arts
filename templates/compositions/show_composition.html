@@ -3,26 +3,37 @@
     {{ composition.name }}
 {% endblock %}
 {% block Content %}
-    <h1>{{ composition.name }}</h1>
-    <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i> <br>
-    <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for this Composition</a>
-    <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this Composition</a>
-    <br><br>
-    <h2> All available tracks for this composition: </h2> <br>
+    <div class="text-center">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>{{ composition.name }}</h1>
+                <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i> <br>
+                <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for
+                    this
+                    Composition</a>
+                <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this
+                    Composition</a>
+                <br><br>
+                <h2> All available tracks for this composition: </h2> <br>
 
-    {% for track in tracks %}
-        <h5> {{ track.instrument }} - <i> {{ track.creator.username }}</i> </h5> <br>
-        {% load static %}
-        {%  get_media_prefix as MEDIA_PREFIX %}
-        <audio controls>
-            <source src="{{ MEDIA_PREFIX }}{{ track.track_file }}" type="audio/mp3">
-        </audio>
-    {% endfor %}
-    <br>
-    <h2> All available variations for this composition: </h2> <br>
+                {% for track in tracks %}
+                    <h5> {{ track.instrument }} - <i> <a
+                            href="{% url 'profile' track.creator.username %}">{{ track.creator.username }} </a></i></h5>
+                    <br>
+                    {% load static %}
+                    {% get_media_prefix as MEDIA_PREFIX %}
+                    <audio controls>
+                        <source src="{{ MEDIA_PREFIX }}{{ track.track_file }}" type="audio/mp3">
+                    </audio>
+                {% endfor %}
+                <br>
+                <h2> All available variations for this composition: </h2> <br>
 
-    {% for variation in variations %}
-        <div> <h3> <a href="{% url 'show_variation' variation.id %}">{{ variation.name }} </a> - <i> {{ variation.creator.username }}</i> </h3></div>
-    {% endfor %}
-
+                {% for variation in variations %}
+                    <div><h3><a href="{% url 'show_variation' variation.id %}">{{ variation.name }} </a> -
+                        <i> {{ variation.creator.username }}</i></h3></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

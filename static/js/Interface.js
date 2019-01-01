@@ -373,7 +373,7 @@ Interface.Button = function(params){
 		this.type = params.type || "moment";
 
 		this.element = $("<div>", {
-			"class" : "Button",
+			"class" : "Button " + params.class,
 			"text" : this.text
 		}).appendTo(params.parent || "#Content")
 			.on("mousedown touchstart", this._start.bind(this));
@@ -461,6 +461,7 @@ Interface.Button.prototype._keyup = function(e){
  *	TRANSPORT
  *
  */
+
 Interface.Transport = function(){
 
 	if (this instanceof Interface.Transport){
@@ -483,9 +484,40 @@ Interface.Transport = function(){
 
 Interface.Transport.prototype._loop = function(){
 	setTimeout(this._boundLoop, 50);
+	//this.position.text(Number(Tone.Transport.seconds).toFixed(2));
 	this.position.text(Tone.Transport.position);
 };
 
+
+Interface.TransportInSeconds = function(params){
+
+	if (this instanceof Interface.TransportInSeconds){
+
+		this.element = $("<div>", {
+			"style": "display: none;",
+			"class" : "Transport",
+		}).appendTo("#Content");
+
+		this.position = $("<div>", {
+			"id" : "Position"
+		}).appendTo(this.element);
+
+
+		this.start = params.start;
+		this._boundLoop = this._loop.bind(this);
+		this._loop();
+
+	} else {
+		return new Interface.TransportInSeconds(params);
+	}
+};
+
+Interface.TransportInSeconds.prototype._loop = function(){
+	setTimeout(this._boundLoop, 50);
+	this.start();
+	//this.position.text(Number(Tone.Transport.seconds).toFixed(2));
+	//this.position.text(Tone.Transport.position);
+};
 
 /**
  *
@@ -532,4 +564,7 @@ Interface.Keyboard.prototype._resize = function(){
 	} else {
 		this.keyboard.rootNote = 48;
 	}
-}
+};
+
+
+

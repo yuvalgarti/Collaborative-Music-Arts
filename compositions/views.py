@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import CompositionForm, VariationForm, TrackForm
 from .models import Composition, Variation, Track
@@ -10,8 +11,10 @@ def index(request):
 
 
 def profile(request, username):
-    return render(request, 'compositions/profile.html',
-                  {'compositions': Composition.objects.filter(creator=request.user).order_by('-created_at')})
+    return render(request, 'compositions/profile.html', {
+        'compositions': Composition.objects.filter(creator=User.objects.get(username=username)).order_by('-created_at'),
+        'username': username
+    })
 
 
 @login_required(login_url='/accounts/login')
@@ -21,6 +24,7 @@ def create_composition(request):
         if form.is_valid():
             compo = form.save(commit=False)
             compo.creator = request.user
+            compo.thumbnail = 'thumbnails/missing.jpg'
             compo.save()
             return redirect('index')
     else:

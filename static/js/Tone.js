@@ -23495,7 +23495,8 @@
 	        //compute the values in seconds
 	        offset = this.toSeconds(offset);
 	        var computedDuration = Tone.defaultArg(duration, Math.max(this._buffer.duration - offset, 0));
-	        computedDuration = this.toSeconds(computedDuration);
+	        computedDuration = this.toSeconds(computedDuration)
+            //console.log(this);
 	        startTime = this.toSeconds(startTime);
 	        //start the elapsed time counter
 	        this._elapsedTime.start(startTime, offset);

@@ -10,12 +10,12 @@
     <script src="{% static 'js/draggabilly.js' %}"></script>
     <script src="{% static 'js/StartAudioContext.js' %}"></script>
     <script src="{% static 'js/Interface.js' %}"></script>
+    <script src="{% static 'js/mixer.js' %}"></script>
     <script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/examples.css' %}">
 {% endblock %}
 {% block Content %}
-    <input id="WhenToStart" type="number" min="0" max="600" step="0.01" value="0">
     <style type="text/css">
         img {
             width: 300px !important;
@@ -74,133 +74,47 @@
         var all_ids = [];
         var all_players = [];
 
-
-        function makeFader(track, name, id) {
-            var player = new Tone.Player("{{ MEDIA_PREFIX }}" + track);
-            //player.loop = true;
-            var soloCtrl = new Tone.Solo();
-            var panVol = new Tone.PanVol();
-            player.chain(panVol, soloCtrl, Tone.Master);
-            all_synced.push(player);
-            all_ids.push(id);
-            all_players.push({
-                "player": player,
-                "id": id,
-                "panVol": panVol,
-                "solo": soloCtrl
-            });
-            var container = $("<div>", {
-                "class": "Group"
-            }).appendTo('#Sliders');
-
-            $("<div>", {
-                "class": "Title",
-                "text": name
-            }).appendTo(container);
-
-            $("<div>", {
-                "align": "center",
-                "id": "StartStopInputs" + id
-            }).appendTo(container);
-
-            var CurrentStartStopInputs = $("#StartStopInputs" + id);
-
-            $("<span>", {
-                "text": "Start:"
-            }).appendTo(CurrentStartStopInputs);
-
-            ($("<input>", {
-                "type": "number",
-                "id": "timingStart" + id,
-                "min": "0",
-                "max": "600",
-                "value": "0",
-                "step": "0.01",
-            })).appendTo(CurrentStartStopInputs);
-
-            //$("<br><br>").appendTo(CurrentStartStopInputs);
-
-            $("<span>", {
-                "text": " Stop:"
-            }).appendTo(CurrentStartStopInputs);
-
-            ($("<input>", {
-                "type": "number",
-                "id": "timingStop" + id,
-                "min": "0",
-                "max": "600",
-                //"value": "0",
-                "step": "0.01",
-            })).appendTo(CurrentStartStopInputs);
-            $("<br><br>").appendTo(CurrentStartStopInputs);
-
-            Interface.Slider({
-                param: "volume",
-                name: "volume",
-                parent: container,
-                tone: panVol,
-                axis: "y",
-                exp: 0.5,
-                max: 6,
-                min: -60,
-            });
-
-            Interface.Slider({
-                param: "pan",
-                name: "pan",
-                parent: container,
-                tone: panVol,
-                min: -1,
-                max: 1,
-            });
-
-            Interface.Button({
-                parent: container,
-                type: "toggle",
-                text: "solo",
-                activeText: "solo",
-                start: function () {
-                    soloCtrl.solo = true;
-                },
-                end: function () {
-                    soloCtrl.solo = false;
-                },
-            });
-
-            Interface.Button({
-                parent: container,
-                type: "toggle",
-                text: "mute",
-                activeText: "mute",
-                start: function () {
-                    player.mute = true;
-                },
-                end: function () {
-                    player.mute = false;
-                },
-            });
-        }
         {% for track in tracks %}
-            // var number = parseInt($(this).find('#{{ track }}').text(), 10);
-            makeFader("{{ track.track_file }}", "{{ track.instrument }}", {{ track.id }});
-
+            makeFader("{{ track.track_file }}", "{{ track.instrument }}", {{ track.id }}, {{ MEDIA_PREFIX }});
         {% endfor %}
 
-
         var timeSlider;
+        var dragging;
+        var play_btn;
         timeSlider = Interface.Slider({
-            name: "Start At",
-            max: 50,
+            name: "At: 0.00",
             drag: function (val) {
                 Tone.Transport.seconds = val;
+                timeSlider.name[0].innerHTML = "At: " + Number(val).toFixed(2);
+            },
+            start: function () {
+                dragging = true;
+            },
+            end: function () {
+                dragging = false;
+            }
+        });
+        var transport;
+        transport = Interface.TransportInSeconds({
+            start: function () {
+                var curr_pos = Number(Tone.Transport.seconds).toFixed(2);
+                if (!dragging && curr_pos < timeSlider.max) {
+                    this.position.text(curr_pos);
+                    timeSlider.value(curr_pos);
+                    timeSlider.name[0].innerHTML = "At: " + curr_pos;
+                }
+                if (curr_pos >= timeSlider.max) {
+                    play_btn._end();
+                }
             }
         });
 
-        Interface.Button({
+        play_btn = Interface.Button({
             type: "toggle",
             text: "Start",
             activeText: "Stop",
             start: function () {
+                var max_duration = 0;
                 for (var i = 0; i < all_players.length; i++) {
                     var timingStart_id = $("#timingStart" + all_players[i]['id']).val();
                     var timingStop_id = $("#timingStop" + all_players[i]['id']).val();
@@ -211,9 +125,15 @@
                         all_players[i]['player'].sync().stop(timingStop_id);
                     }
                     //all_players[i]['player'].sync().stop(5);
+                    // console.log(timingStart_id);
+                    //console.log(Number(all_players[i]['player'].buffer._buffer.duration) + Number(timingStart_id));
+                    if (max_duration < Number(all_players[i]['player'].buffer._buffer.duration) + Number(timingStart_id)) {
+                        max_duration = Number(all_players[i]['player'].buffer._buffer.duration) + Number(timingStart_id);
+                    }
                 }
 
                 //Tone.Transport.seconds = $("#WhenToStart").val();
+                timeSlider.max = max_duration;
                 Tone.Transport.start();
                 if (Tone.context.state !== 'running') {
                     Tone.context.resume();
@@ -221,6 +141,8 @@
             },
             end: function () {
                 Tone.Transport.stop();
+                timeSlider.value(0);
+                timeSlider.name[0].innerHTML = "At: 0.00";
             },
         });
     </script>

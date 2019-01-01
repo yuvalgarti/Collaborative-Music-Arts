@@ -7,6 +7,8 @@ class CompositionForm(forms.ModelForm):
         'class': 'form-control'
     }))
 
+    thumbnail = forms.ImageField(required=False)
+
     class Meta:
         model = Composition
         fields = ['name', 'thumbnail']
@@ -16,6 +18,7 @@ class VariationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.composition_id = kwargs.pop('composition_id')
         super(forms.ModelForm, self).__init__(*args, **kwargs)
+        self.fields['tracks'].queryset = Track.objects.filter(composition_id=self.composition_id)
 
     class Meta:
         model = Variation
