@@ -74,5 +74,6 @@ def show_composition(request, composition_id):
 def show_variation(request, variation_id):
     return render(request, 'compositions/show_variation.html', context={
         'tracks': Variation.objects.get(id=variation_id).tracks.all(),
+        'track_in_variation': Variation.objects.get(id=variation_id).trackinvariation_set.all(),
         'composition': Variation.objects.get(id=variation_id).composition
     })

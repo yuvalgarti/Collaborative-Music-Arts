@@ -1,12 +1,10 @@
 
-function makeFader(track, name, id, media_prefix) {
+function makeFader(track, name, id, media_prefix, start_timing, stop_timing) {
             var player = new Tone.Player(media_prefix + track);
             //player.loop = true;
             var soloCtrl = new Tone.Solo();
             var panVol = new Tone.PanVol();
             player.chain(panVol, soloCtrl, Tone.Master);
-            all_synced.push(player);
-            all_ids.push(id);
             all_players.push({
                 "player": player,
                 "id": id,
@@ -38,7 +36,7 @@ function makeFader(track, name, id, media_prefix) {
                 "id": "timingStart" + id,
                 "min": "0",
                 "max": "600",
-                "value": "0",
+                "value": start_timing,
                 "step": "0.01",
             })).appendTo(CurrentStartStopInputs);
 
@@ -47,13 +45,13 @@ function makeFader(track, name, id, media_prefix) {
             $("<span>", {
                 "text": " Stop:"
             }).appendTo(CurrentStartStopInputs);
-
+            console.log(stop_timing === 0);
             ($("<input>", {
                 "type": "number",
                 "id": "timingStop" + id,
                 "min": "0",
                 "max": "600",
-                //"value": "0",
+                "value": (stop_timing === 0 ? "" : stop_timing),
                 "step": "0.01",
             })).appendTo(CurrentStartStopInputs);
             $("<br><br>").appendTo(CurrentStartStopInputs);
