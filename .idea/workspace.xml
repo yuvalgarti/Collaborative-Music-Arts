@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23057fd9-1eed-43e3-8ea8-eda6d4623639" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collaborative_Music_Arts/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Collaborative_Music_Arts/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compositions/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compositions/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compositions/migrations/0002_auto_20181223_1735.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compositions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compositions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/mixer.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mixer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/create_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_composition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/create_track.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_track.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/create_variation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_variation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/show_variation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_variation.html" afterDir="false" />
-    </list>
+    <list default="true" id="23057fd9-1eed-43e3-8ea8-eda6d4623639" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,62 +12,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compositions/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compositions/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-              <folding>
-                <element signature="e#648#690#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compositions/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,6 +61,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -164,6 +100,11 @@
       </list>
     </option>
   </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="Collaborative_Music_Arts/invalid/Django" />
+    </ignored-facets>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1041" />
@@ -180,35 +121,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="compositions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="compositions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
+              <item name="Collaborative-Music-Arts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Collaborative-Music-Arts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,9 +229,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19213313" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -405,13 +318,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17272" column="17" selection-start-line="17272" selection-start-column="17" selection-end-line="17272" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts" />
     <entry file="file://$PROJECT_DIR$/static/js/StartAudioContext.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -419,13 +326,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="292" column="4" selection-start-line="292" selection-start-column="4" selection-end-line="292" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts" />
     <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
