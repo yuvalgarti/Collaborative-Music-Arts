@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block Title %}
+    Create Variation
+{% endblock %}
+{% block Content %}
+    <form action="{% url 'create_variation' composition_id %}" method="post">
+        {% csrf_token %}
+        <div class="text-center">
+            {% include 'base_form.html' %}
+        </div>
+    </form>
+{% endblock %}

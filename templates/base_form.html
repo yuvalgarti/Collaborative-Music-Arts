@@ -1,0 +1,13 @@
+{% for field in form %}
+
+    <div class="control-group col-sm-2 offset-sm-5">
+        <label class="control-label">{{ field.label }}:</label>
+        <div class="controls">{{ field }}</div>
+        {% if field.errors %}
+            {{ field.errors }}
+        {% endif %}
+    </div>
+
+    <br>
+{% endfor %}
+<input type="submit" class="btn btn-primary" value="Submit">

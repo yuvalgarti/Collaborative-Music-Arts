@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23057fd9-1eed-43e3-8ea8-eda6d4623639" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/compositions/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-2.1.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Django-2.1.4.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/django-admin.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/django-admin.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Collaborative_Music_Arts/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Collaborative_Music_Arts/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/migrations/0002_auto_20181223_1735.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mixer.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mixer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compositions/create_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_composition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compositions/create_track.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_track.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compositions/create_variation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/create_variation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compositions/show_variation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_variation.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +27,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="214">
+              <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compositions/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compositions/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -30,8 +60,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="265">
+              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+              <folding>
+                <element signature="e#648#690#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compositions/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,8 +87,46 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Setup Script" />
+        <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>base_track</find>
+      <find>base</find>
+      <find>base_t</find>
+      <find>tracks</find>
+      <find>vari</find>
+      <find>tem</find>
+      <find>accou</find>
+      <find>compositions</find>
+      <find>i</find>
+      <find>requestAnimationFrame</find>
+      <find>parent</find>
+      <find>bound</find>
+      <find>Tone.Trans</find>
+      <find>Transport</find>
+      <find>length</find>
+      <find>getduration</find>
+      <find>Tone.Transport</find>
+      <find>duration</find>
+      <find>Tone.Player</find>
+      <find>log</find>
+      <find>trans</find>
+      <find>tra</find>
+      <find>allowed</find>
+      <find>StartStopInputs</find>
+      <find>button</find>
+      <find>slider</find>
+      <find>all_ids</find>
+      <find>all_synced</find>
+      <find>all_players</find>
+      <find>all_playe</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,15 +134,40 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/compositions/admin.py" />
+        <option value="$PROJECT_DIR$/compositions/Forms.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/compositions/templates/compositions/Create_Composition.html" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/Collaborative_Music_Arts/urls.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/compositions/urls.py" />
+        <option value="$PROJECT_DIR$/static/js/draggabilly.js" />
+        <option value="$PROJECT_DIR$/static/js/Tone.js" />
+        <option value="$PROJECT_DIR$/templates/compositions/index.html" />
+        <option value="$PROJECT_DIR$/templates/compositions/profile.html" />
+        <option value="$PROJECT_DIR$/templates/compositions/show_composition.html" />
+        <option value="$PROJECT_DIR$/static/js/Interface.js" />
+        <option value="$PROJECT_DIR$/static/css/show_variation.css" />
+        <option value="$PROJECT_DIR$/static/js/mixer-interface.js" />
         <option value="$PROJECT_DIR$/Collaborative_Music_Arts/settings.py" />
+        <option value="$PROJECT_DIR$/templates/base_form.html" />
+        <option value="$PROJECT_DIR$/templates/compositions/create_composition.html" />
+        <option value="$PROJECT_DIR$/templates/compositions/create_variation.html" />
+        <option value="$PROJECT_DIR$/templates/compositions/create_track.html" />
+        <option value="$PROJECT_DIR$/compositions/forms.py" />
+        <option value="$PROJECT_DIR$/compositions/views.py" />
+        <option value="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" />
+        <option value="$PROJECT_DIR$/static/js/mixer.js" />
+        <option value="$PROJECT_DIR$/templates/compositions/show_variation.html" />
+        <option value="$PROJECT_DIR$/compositions/models.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="1041" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -67,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,17 +193,50 @@
               <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
               <item name="compositions" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="compositions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Yuval\Collaborative_Music_Arts\media\thumbnails" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\static\js" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\static\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Yuval\Collaborative_Music_Arts\static\css" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\static\js" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\static" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\media" />
+      <recent name="C:\Yuval\Collaborative_Music_Arts\templates" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -146,33 +288,52 @@
       <updated>1544885340142</updated>
       <workItem from="1544885343889" duration="624000" />
       <workItem from="1544911013169" duration="331000" />
-      <workItem from="1545297623166" duration="3265000" />
+      <workItem from="1545297623166" duration="31092000" />
+      <workItem from="1545384873569" duration="4947000" />
+      <workItem from="1545390208291" duration="1789000" />
+      <workItem from="1545414081325" duration="5272000" />
+      <workItem from="1545563997445" duration="1840000" />
+      <workItem from="1545578045544" duration="2307000" />
+      <workItem from="1545591285515" duration="625000" />
+      <workItem from="1545656312294" duration="3436000" />
+      <workItem from="1545663651965" duration="2773000" />
+      <workItem from="1545739368602" duration="15934000" />
+      <workItem from="1546005874336" duration="8264000" />
+      <workItem from="1546171163770" duration="1861000" />
+      <workItem from="1546273867064" duration="885000" />
+      <workItem from="1546288387733" duration="3578000" />
+      <workItem from="1546341100830" duration="3132000" />
+      <workItem from="1546350352871" duration="5030000" />
+      <workItem from="1546524748450" duration="2345000" />
+      <workItem from="1546536550407" duration="1953000" />
+      <workItem from="1546696775135" duration="1362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4220000" />
+    <option name="totallyTimeSpent" value="99380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="20" width="1346" height="688" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25738725" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19213313" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24713585" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32972974" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32972974" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32972974" />
-      <window_info anchor="bottom" id="manage.py@Collaborative_Music_Arts" order="13" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
+      <window_info anchor="bottom" id="manage.py@Collaborative_Music_Arts" order="13" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -184,17 +345,262 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/settings.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/django_manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymongo/topology.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/migrations/0003_composition_track_variation.py" />
+    <entry file="file://$PROJECT_DIR$/compositions/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="23" column="63" lean-forward="true" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/signin.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/draggabilly.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="500" column="22" lean-forward="true" selection-start-line="500" selection-start-column="22" selection-end-line="500" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="17272" column="17" selection-start-line="17272" selection-start-column="17" selection-end-line="17272" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/StartAudioContext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="109" column="28" lean-forward="true" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <caret line="292" column="4" selection-start-line="292" selection-start-column="4" selection-end-line="292" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/Tone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404464">
+          <caret line="23792" column="42" selection-start-line="23792" selection-start-column="42" selection-end-line="23792" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/examples.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/show_composition.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/Interface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1177">
+          <caret line="496" column="38" selection-start-line="496" selection-start-column="38" selection-end-line="496" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mixer-interface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/create_track.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/migrations/0002_auto_20190101_1648.py" />
+    <entry file="file://$PROJECT_DIR$/static/css/show_variation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/show_all_compositions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/show_variation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/create_composition.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mixer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/create_variation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Collaborative_Music_Arts/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="265">
+          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding>
+            <element signature="e#648#690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

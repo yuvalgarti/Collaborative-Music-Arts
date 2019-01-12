@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block Title %}
+    Add Track
+{% endblock %}
+{% block Content %}
+<form action="{% url 'create_track' composition_id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+   <div class="text-center">
+       {% include 'base_form.html' %}
+   </div>
+</form>
+{% endblock %}
