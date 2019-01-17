@@ -44,11 +44,18 @@ class CreateCompositionView(View):
                 compo.thumbnail = self.missing_thumbnail
             compo.save()
             return redirect('index')
+        return render(request, self.template_name, {'form': form})
 
 
-@login_required(login_url='/accounts/login')
-def create_variation(request, composition_id):
-    if request.method == 'POST':
+class CreateVariationView(View):
+    template_name = 'compositions/create_variation.html'
+
+    def get(self, request, *args, **kwargs):
+        form = VariationForm(composition_id=kwargs['composition_id'])
+        return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
+
+    def post(self, request, *args, **kwargs):
+        composition_id = kwargs['composition_id']
         form = VariationForm(request.POST, composition_id=composition_id)
         if form.is_valid():
             vari = form.save(commit=False)
@@ -57,9 +64,7 @@ def create_variation(request, composition_id):
             vari.save()
             form.save_m2m()
             return redirect('index')
-    else:
-        form = VariationForm(composition_id=composition_id)
-    return render(request, 'compositions/create_variation.html', {'form': form, 'composition_id': composition_id})
+        return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
 
 
 @login_required(login_url='/accounts/login')

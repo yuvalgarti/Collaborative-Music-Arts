@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compositions/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="221">
+              <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compositions/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
+            <state relative-caret-position="119">
+              <caret line="7" column="90" lean-forward="true" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -262,12 +262,12 @@
       <workItem from="1546806400350" duration="593000" />
       <workItem from="1546863209596" duration="3361000" />
       <workItem from="1546882020004" duration="860000" />
-      <workItem from="1547729058811" duration="1908000" />
+      <workItem from="1547729058811" duration="2915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108671000" />
+    <option name="totallyTimeSpent" value="109678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -559,8 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/compositions/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
+        <state relative-caret-position="119">
+          <caret line="7" column="90" lean-forward="true" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -569,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/compositions/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state relative-caret-position="221">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
