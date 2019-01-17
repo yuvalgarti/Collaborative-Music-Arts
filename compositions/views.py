@@ -5,6 +5,7 @@ from .forms import CompositionForm, VariationForm, TrackForm
 from .models import Composition, Variation, Track
 
 
+
 # Create your views here.
 def index(request):
     return render(request, 'compositions/index.html', {'compositions': Composition.objects.order_by('-created_at')})
@@ -24,7 +25,8 @@ def create_composition(request):
         if form.is_valid():
             compo = form.save(commit=False)
             compo.creator = request.user
-            compo.thumbnail = 'thumbnails/missing.jpg'
+            if not compo.thumbnail:
+                compo.thumbnail = 'thumbnails/missing.jpg'
             compo.save()
             return redirect('index')
     else:

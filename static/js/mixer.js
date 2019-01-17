@@ -4,7 +4,9 @@ function makeFader(track, name, id, media_prefix, start_timing, stop_timing) {
             //player.loop = true;
             var soloCtrl = new Tone.Solo();
             var panVol = new Tone.PanVol();
-            player.chain(panVol, soloCtrl, Tone.Master);
+            var waveform = new Tone.Waveform();
+
+            player.chain(panVol, soloCtrl, waveform, Tone.Master);
             all_players.push({
                 "player": player,
                 "id": id,
@@ -111,4 +113,5 @@ function makeFader(track, name, id, media_prefix, start_timing, stop_timing) {
                     player.mute = false;
                 },
             });
+
         }

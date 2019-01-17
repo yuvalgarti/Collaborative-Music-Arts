@@ -31,7 +31,7 @@
 
                 {% for variation in variations %}
                     <div><h3><a href="{% url 'show_variation' variation.id %}">{{ variation.name }} </a> -
-                        <i> {{ variation.creator.username }}</i></h3></div>
+                        <a href="{% url 'profile'  variation.creator.username %}"><i> {{ variation.creator.username }}</i></a></h3></div>
                 {% endfor %}
             </div>
         </div>
