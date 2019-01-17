@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23057fd9-1eed-43e3-8ea8-eda6d4623639" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/compositions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compositions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,22 +34,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compositions/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+            <state relative-caret-position="340">
+              <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compositions/urls.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compositions/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+            <state relative-caret-position="102">
+              <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2820">
+              <caret line="277" column="6" selection-start-line="277" selection-start-column="6" selection-end-line="277" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compositions/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,15 +147,15 @@
         <option value="$PROJECT_DIR$/templates/compositions/create_composition.html" />
         <option value="$PROJECT_DIR$/templates/compositions/create_variation.html" />
         <option value="$PROJECT_DIR$/templates/compositions/create_track.html" />
-        <option value="$PROJECT_DIR$/compositions/models.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" />
         <option value="$PROJECT_DIR$/compositions/forms.py" />
         <option value="$PROJECT_DIR$/templates/compositions/show_composition.html" />
         <option value="$PROJECT_DIR$/static/js/mixer.js" />
         <option value="$PROJECT_DIR$/templates/compositions/show_variation.html" />
-        <option value="$PROJECT_DIR$/compositions/views.py" />
         <option value="$PROJECT_DIR$/compositions/urls.py" />
+        <option value="$PROJECT_DIR$/compositions/views.py" />
+        <option value="$PROJECT_DIR$/compositions/models.py" />
       </list>
     </option>
   </component>
@@ -262,12 +284,12 @@
       <workItem from="1546806400350" duration="593000" />
       <workItem from="1546863209596" duration="3361000" />
       <workItem from="1546882020004" duration="860000" />
-      <workItem from="1547729058811" duration="3828000" />
+      <workItem from="1547729058811" duration="7122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110591000" />
+    <option name="totallyTimeSpent" value="113885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -488,26 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compositions/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compositions/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/compositions/create_composition.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -557,22 +559,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compositions/views.py">
+    <entry file="file://$PROJECT_DIR$/compositions/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+        <state relative-caret-position="238">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compositions/urls.py">
+    <entry file="file://$PROJECT_DIR$/compositions/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+        <state relative-caret-position="340">
+          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2820">
+          <caret line="277" column="6" selection-start-line="277" selection-start-column="6" selection-end-line="277" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compositions/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

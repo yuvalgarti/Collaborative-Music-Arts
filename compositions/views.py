@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
@@ -11,10 +10,10 @@ from django.views import View
 # Create your views here.
 class IndexView(View):
     template_name = 'compositions/index.html'
-    context = {'compositions': Composition.objects.order_by('-created_at')}
 
     def get(self, request):
-        return render(request, self.template_name, self.context)
+        context = {'compositions': Composition.objects.order_by('-created_at')}
+        return render(request, self.template_name, context)
 
 
 class ProfileView(View):
@@ -41,10 +40,12 @@ class CreateCompositionView(View):
         form = CompositionForm(request.POST, request.FILES)
         if form.is_valid():
             compo = form.save(commit=False)
+            """
             compo.creator = request.user
             if not compo.thumbnail:
                 compo.thumbnail = self.missing_thumbnail
-            compo.save()
+            """
+            compo.save(user=request.user)
             return redirect('index')
         return render(request, self.template_name, {'form': form})
 

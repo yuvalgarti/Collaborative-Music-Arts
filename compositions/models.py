@@ -10,6 +10,14 @@ class Composition(models.Model):
     thumbnail = models.ImageField(upload_to='thumbnails')
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
+    def save(self, *args, **kwargs):
+        missing_thumbnail = 'thumbnails/missing.jpg'
+        user = kwargs.pop('user')
+        self.creator = user
+        if not self.thumbnail:
+            self.thumbnail = missing_thumbnail
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name + ' - ' + self.creator.username
 
