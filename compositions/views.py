@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+
 from .forms import CompositionForm, VariationForm, TrackForm
 from .models import Composition, Variation, Track
 from django.views import View
@@ -88,12 +90,17 @@ class CreateTrackView(View):
         return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
 
-def show_composition(request, composition_id):
-    return render(request, 'compositions/show_composition.html', context={
-        'composition': Composition.objects.get(id=composition_id),
-        'variations': Variation.objects.filter(composition__id=composition_id),
-        'tracks': Track.objects.filter(composition__id=composition_id)
-    })
+class ShowCompositionView(TemplateView):
+    template_name = 'compositions/show_composition.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        composition_id = kwargs['composition_id']
+        context['composition'] = Composition.objects.get(id=composition_id)
+        context['variations'] = Variation.objects.filter(composition__id=composition_id)
+        context['tracks'] = Track.objects.filter(composition__id=composition_id)
+        return context
 
 
 def show_variation(request, variation_id):
