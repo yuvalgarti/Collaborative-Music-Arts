@@ -103,9 +103,15 @@ class ShowCompositionView(TemplateView):
         return context
 
 
-def show_variation(request, variation_id):
-    return render(request, 'compositions/show_variation.html', context={
-        'tracks': Variation.objects.get(id=variation_id).tracks.all(),
-        'track_in_variation': Variation.objects.get(id=variation_id).trackinvariation_set.all(),
-        'composition': Variation.objects.get(id=variation_id).composition
-    })
+class ShowVariationView(TemplateView):
+    template_name = 'compositions/show_variation.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        variation_id = kwargs['variation_id']
+        context['tracks'] = Variation.objects.get(id=variation_id).tracks.all()
+        context['track_in_variation'] = Variation.objects.get(id=variation_id).trackinvariation_set.all()
+        context['composition'] = Variation.objects.get(id=variation_id).composition
+        return context
+
