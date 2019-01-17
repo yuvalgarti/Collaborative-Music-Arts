@@ -51,8 +51,9 @@ class CreateVariationView(View):
     template_name = 'compositions/create_variation.html'
 
     def get(self, request, *args, **kwargs):
-        form = VariationForm(composition_id=kwargs['composition_id'])
-        return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
+        composition_id = kwargs['composition_id']
+        form = VariationForm(composition_id=composition_id)
+        return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
     def post(self, request, *args, **kwargs):
         composition_id = kwargs['composition_id']
@@ -67,9 +68,16 @@ class CreateVariationView(View):
         return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
 
 
-@login_required(login_url='/accounts/login')
-def create_track(request, composition_id):
-    if request.method == 'POST':
+class CreateTrackView(View):
+    template_name = 'compositions/create_track.html'
+
+    def get(self, request, *args, **kwargs):
+        composition_id = kwargs['composition_id']
+        form = TrackForm(composition_id=composition_id)
+        return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
+
+    def post(self, request, *args, **kwargs):
+        composition_id = kwargs['composition_id']
         form = TrackForm(request.POST, request.FILES, composition_id=composition_id)
         if form.is_valid():
             track = form.save(commit=False)
@@ -77,9 +85,7 @@ def create_track(request, composition_id):
             track.composition = Composition.objects.get(id=composition_id)
             track.save()
             return redirect('index')
-    else:
-        form = TrackForm(composition_id=composition_id)
-    return render(request, 'compositions/create_track.html', {'form': form, 'composition_id': composition_id})
+        return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
 
 def show_composition(request, composition_id):
