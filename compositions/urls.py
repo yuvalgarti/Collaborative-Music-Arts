@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^create_track/(?P<composition_id>[0-9]+)$', views.create_track, name='create_track'),
     url(r'^composition/(?P<composition_id>[0-9]+)$', views.show_composition, name='show_composition'),
     url(r'^variation/(?P<variation_id>[0-9]+)$', views.show_variation, name='show_variation'),
-    url(r'^profile/(?P<username>[\w\-]+)$', views.profile, name='profile'),
+    url(r'^profile/(?P<username>[\w\-]+)$', views.ProfileView.as_view(), name='profile'),
     path('', views.IndexView.as_view(), name='index')
 ]

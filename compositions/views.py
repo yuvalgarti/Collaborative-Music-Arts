@@ -15,11 +15,16 @@ class IndexView(View):
         return render(request, self.template_name, self.context)
 
 
-def profile(request, username):
-    return render(request, 'compositions/profile.html', {
-        'compositions': Composition.objects.filter(creator=User.objects.get(username=username)).order_by('-created_at'),
-        'username': username
-    })
+class ProfileView(View):
+    template_name = 'compositions/profile.html'
+
+    def get(self, request, *args, **kwargs):
+        username = kwargs['username']
+        return render(request, self.template_name, {
+            'compositions': Composition.objects.filter(creator=User.objects.get(username=username)).order_by(
+                '-created_at'),
+            'username': username
+        })
 
 
 @login_required(login_url='/accounts/login')
