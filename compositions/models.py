@@ -28,6 +28,12 @@ class Track(models.Model):
     composition = models.ForeignKey(Composition, on_delete=models.DO_NOTHING)
     track_file = models.FileField(upload_to='tracks')
 
+    def save(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        composition_id = kwargs.pop('composition_id')
+        self.creator = user
+        self.composition = Composition.objects.get(id=composition_id)
+
     def __str__(self):
         return self.instrument + ' - ' + self.creator.username
 
@@ -39,6 +45,12 @@ class Variation(models.Model):
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     composition = models.ForeignKey(Composition, on_delete=models.CASCADE)
     tracks = models.ManyToManyField(Track, through='TrackInVariation')
+
+    def save(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        composition_id = kwargs.pop('composition_id')
+        self.creator = user
+        self.composition = Composition.objects.get(id=composition_id)
 
     def __str__(self):
         return self.name + ' (' + str(self.composition) + ') - ' + self.creator.username

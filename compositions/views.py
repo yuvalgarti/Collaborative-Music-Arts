@@ -39,12 +39,7 @@ class CreateCompositionView(View):
     def post(self, request):
         form = CompositionForm(request.POST, request.FILES)
         if form.is_valid():
-            compo = form.save(commit=False)
-            """
-            compo.creator = request.user
-            if not compo.thumbnail:
-                compo.thumbnail = self.missing_thumbnail
-            """
+            compo = form.instance
             compo.save(user=request.user)
             return redirect('index')
         return render(request, self.template_name, {'form': form})
@@ -62,10 +57,8 @@ class CreateVariationView(View):
         composition_id = kwargs['composition_id']
         form = VariationForm(request.POST, composition_id=composition_id)
         if form.is_valid():
-            vari = form.save(commit=False)
-            vari.creator = request.user
-            vari.composition = Composition.objects.get(id=composition_id)
-            vari.save()
+            vari = form.instance
+            vari.save(user=request.user, composition_id=composition_id)
             form.save_m2m()
             return redirect('index')
         return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
@@ -83,10 +76,8 @@ class CreateTrackView(View):
         composition_id = kwargs['composition_id']
         form = TrackForm(request.POST, request.FILES, composition_id=composition_id)
         if form.is_valid():
-            track = form.save(commit=False)
-            track.creator = request.user
-            track.composition = Composition.objects.get(id=composition_id)
-            track.save()
+            track = form.instance
+            track.save(user=request.user, composition_id=composition_id)
             return redirect('index')
         return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
