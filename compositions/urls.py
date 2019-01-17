@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^composition/(?P<composition_id>[0-9]+)$', views.show_composition, name='show_composition'),
     url(r'^variation/(?P<variation_id>[0-9]+)$', views.show_variation, name='show_variation'),
     url(r'^profile/(?P<username>[\w\-]+)$', views.profile, name='profile'),
-    path('', views.index, name='index')
+    path('', views.IndexView.as_view(), name='index')
 ]

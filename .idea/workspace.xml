@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23057fd9-1eed-43e3-8ea8-eda6d4623639" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compositions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compositions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/compositions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/mixer.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mixer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/show_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_composition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/compositions/show_variation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compositions/show_variation.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,20 +30,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/mixer.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compositions/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="115" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="187">
+              <caret line="11" column="120" selection-start-line="11" selection-start-column="120" selection-end-line="11" selection-end-column="120" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/compositions/show_variation.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compositions/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+            <state relative-caret-position="153">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -110,7 +110,6 @@
         <option value="$PROJECT_DIR$/compositions/templates/compositions/Create_Composition.html" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/Collaborative_Music_Arts/urls.py" />
-        <option value="$PROJECT_DIR$/compositions/urls.py" />
         <option value="$PROJECT_DIR$/static/js/draggabilly.js" />
         <option value="$PROJECT_DIR$/static/js/Tone.js" />
         <option value="$PROJECT_DIR$/templates/compositions/index.html" />
@@ -128,9 +127,10 @@
         <option value="$PROJECT_DIR$/templates/compositions/show_all_compositions.html" />
         <option value="$PROJECT_DIR$/compositions/forms.py" />
         <option value="$PROJECT_DIR$/templates/compositions/show_composition.html" />
-        <option value="$PROJECT_DIR$/compositions/views.py" />
         <option value="$PROJECT_DIR$/static/js/mixer.js" />
         <option value="$PROJECT_DIR$/templates/compositions/show_variation.html" />
+        <option value="$PROJECT_DIR$/compositions/views.py" />
+        <option value="$PROJECT_DIR$/compositions/urls.py" />
       </list>
     </option>
   </component>
@@ -157,28 +157,6 @@
             <path>
               <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
               <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="compositions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Collaborative_Music_Arts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Collaborative_Music_Arts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="compositions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -281,16 +259,18 @@
       <workItem from="1546806400350" duration="593000" />
       <workItem from="1546863209596" duration="3361000" />
       <workItem from="1546882020004" duration="860000" />
+      <workItem from="1547729058811" duration="453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106763000" />
+    <option name="totallyTimeSpent" value="107216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20121029" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.204236" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -505,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compositions/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="75" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compositions/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -560,27 +533,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mixer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compositions/show_variation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/compositions/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+        <state relative-caret-position="187">
+          <caret line="11" column="120" selection-start-line="11" selection-start-column="120" selection-end-line="11" selection-end-column="120" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/compositions/show_variation.html">
+    <entry file="file://$PROJECT_DIR$/compositions/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/mixer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="153">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
         </state>
       </provider>
     </entry>

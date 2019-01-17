@@ -3,12 +3,13 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import CompositionForm, VariationForm, TrackForm
 from .models import Composition, Variation, Track
-
+from django.views import View
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'compositions/index.html', {'compositions': Composition.objects.order_by('-created_at')})
+class IndexView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'compositions/index.html', {'compositions': Composition.objects.order_by('-created_at')})
 
 
 def profile(request, username):
