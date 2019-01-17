@@ -1,9 +1,10 @@
 from django.urls import path
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('create_composition', views.create_composition, name='create_composition'),
+    path('create_composition', login_required(views.CreateCompositionView.as_view()), name='create_composition'),
     url(r'^create_variation/(?P<composition_id>[0-9]+)$', views.create_variation, name='create_variation'),
     url(r'^create_track/(?P<composition_id>[0-9]+)$', views.create_track, name='create_track'),
     url(r'^composition/(?P<composition_id>[0-9]+)$', views.show_composition, name='show_composition'),

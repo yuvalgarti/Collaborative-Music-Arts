@@ -27,20 +27,23 @@ class ProfileView(View):
         })
 
 
-@login_required(login_url='/accounts/login')
-def create_composition(request):
-    if request.method == 'POST':
+class CreateCompositionView(View):
+    missing_thumbnail = 'thumbnails/missing.jpg'
+    template_name = 'compositions/create_composition.html'
+
+    def get(self, request):
+        form = CompositionForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
         form = CompositionForm(request.POST, request.FILES)
         if form.is_valid():
             compo = form.save(commit=False)
             compo.creator = request.user
             if not compo.thumbnail:
-                compo.thumbnail = 'thumbnails/missing.jpg'
+                compo.thumbnail = self.missing_thumbnail
             compo.save()
             return redirect('index')
-    else:
-        form = CompositionForm()
-    return render(request, 'compositions/create_composition.html', {'form': form})
 
 
 @login_required(login_url='/accounts/login')
