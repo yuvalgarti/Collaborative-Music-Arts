@@ -8,8 +8,11 @@ from django.views import View
 
 # Create your views here.
 class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'compositions/index.html', {'compositions': Composition.objects.order_by('-created_at')})
+    template_name = 'compositions/index.html'
+    context = {'compositions': Composition.objects.order_by('-created_at')}
+
+    def get(self, request):
+        return render(request, self.template_name, self.context)
 
 
 def profile(request, username):
