@@ -33,6 +33,7 @@ class Track(models.Model):
         composition_id = kwargs.pop('composition_id')
         self.creator = user
         self.composition = Composition.objects.get(id=composition_id)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.instrument + ' - ' + self.creator.username
@@ -51,6 +52,7 @@ class Variation(models.Model):
         composition_id = kwargs.pop('composition_id')
         self.creator = user
         self.composition = Composition.objects.get(id=composition_id)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name + ' (' + str(self.composition) + ') - ' + self.creator.username
