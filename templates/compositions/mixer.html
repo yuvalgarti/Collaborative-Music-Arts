@@ -15,14 +15,14 @@
 
 {% block Content %}
 
-<h1 class="text-center">{{ composition.name }}</h1>
+    <h1 class="text-center">{{ composition.name }}</h1>
 
     <div class="container">
         <div class="wrapper">
             <article class="post">
                 <div class="post-content">
                     <div id="top-bar" class="playlist-top-bar">
-                        <div class="playlist-toolbar">
+                        <div class="playlist-toolbar text-center">
                             <div class="btn-group">
       <span class="btn-pause btn btn-warning">
         <i class="fa fa-pause"></i>
@@ -58,19 +58,6 @@
                                 <span class="btn-shift btn btn-default" title="shift audio in time">
         <i class="fa fa-arrows-h"></i>
       </span>
-                                <span class="btn-fadein btn btn-default" title="set audio fade in">
-        <i class="fa fa-long-arrow-left"></i>
-      </span>
-                                <span class="btn-fadeout btn btn-default" title="set audio fade out">
-        <i class="fa fa-long-arrow-right"></i>
-      </span>
-                            </div>
-                            <div class="btn-group btn-fade-state-group">
-                                <span class="btn btn-default btn-logarithmic active">logarithmic</span>
-                                <span class="btn btn-default btn-linear">linear</span>
-                                <span class="btn btn-default btn-exponential">exponential</span>
-                                <span class="btn btn-default btn-scurve">s-curve</span>
-                            </div>
 
 
                             <div class="btn-group">
@@ -101,17 +88,18 @@
                                 <label for="master-gain">Master Volume</label>
                                 <input type="range" min="0" max="100" value="100" class="master-gain form-control"
                                        id="master-gain">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="automatic-scroll"> Automatic Scroll
-                                </label>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="automatic-scroll"> Automatic Scroll
+                                    </label>
+                                </div>
                             </div>
                         </form>
                         <form class="form-inline">
                             <div class="control-group">
                                 <label for="time">Seek to time :</label>
-                                <input type="number" class="form-control" value="14" id="seektime"/>
+                                <input type="number" class="form-control" value="0" id="seektime"/>
                                 <span class="btn btn-primary btn-seektotime">Seek !</span>
                             </div>
                         </form>
@@ -122,8 +110,8 @@
             </article>
         </div>
     </div>
+    <br> <br> <br>
 
-    <div id="track_data"></div>
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
     {% load static %}
