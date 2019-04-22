@@ -1,7 +1,6 @@
 from djongo import models
 from django.contrib.auth import get_user_model
 
-
 # Create your models here.
 class Composition(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -33,7 +32,6 @@ class Track(models.Model):
         composition_id = kwargs.pop('composition_id')
         self.creator = user
         self.composition = Composition.objects.get(id=composition_id)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.instrument + ' - ' + self.creator.username
@@ -52,7 +50,6 @@ class Variation(models.Model):
         composition_id = kwargs.pop('composition_id')
         self.creator = user
         self.composition = Composition.objects.get(id=composition_id)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name + ' (' + str(self.composition) + ') - ' + self.creator.username

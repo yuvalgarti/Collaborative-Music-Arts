@@ -1,0 +1,24 @@
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+
+from .forms import SignUpForm
+from django.contrib.auth.models import User
+from django.views import View
+
+
+# Create your views here.
+class SignUpView(View):
+    template_name = 'registration/signup.html'
+
+    def get(self, request):
+        form = SignUpForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = SignUpForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = User.objects.create_user(request)
+            user.save()
+            return redirect('index')
+        return render(request, self.template_name, {'form': form})
