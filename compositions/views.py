@@ -39,7 +39,7 @@ class CreateCompositionView(View):
     def post(self, request):
         form = CompositionForm(request.POST, request.FILES)
         if form.is_valid():
-            compo = form.instance
+            compo = form.save(commit=False)
             compo.save(user=request.user)
             return redirect('index')
         return render(request, self.template_name, {'form': form})
@@ -57,7 +57,7 @@ class CreateVariationView(View):
         composition_id = kwargs['composition_id']
         form = VariationForm(request.POST, composition_id=composition_id)
         if form.is_valid():
-            vari = form.instance
+            vari = form.save(commit=False)
             vari.save(user=request.user, composition_id=composition_id)
             form.save_m2m()
             return redirect('index')
@@ -76,7 +76,7 @@ class CreateTrackView(View):
         composition_id = kwargs['composition_id']
         form = TrackForm(request.POST, request.FILES, composition_id=composition_id)
         if form.is_valid():
-            track = form.instance
+            track = form.save(commit=False)
             track.save(user=request.user, composition_id=composition_id)
             return redirect('index')
         return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
