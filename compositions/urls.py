@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^composition/(?P<composition_id>[0-9]+)$', views.ShowCompositionView.as_view(), name='show_composition'),
     url(r'^variation/(?P<variation_id>[0-9]+)$', views.ShowVariationView.as_view(), name='show_variation'),
     url(r'^profile/(?P<username>[\w\-]+)$', views.ProfileView.as_view(), name='profile'),
+    url(r'^delete_composition/(?P<composition_id>[0-9]+)$', login_required(views.DeleteCompositionView.as_view()),
+        name='delete_composition'),
     path('', views.IndexView.as_view(), name='index')
 ]
