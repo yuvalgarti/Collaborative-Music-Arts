@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     url('accounts/signup', views.SignUpView.as_view(), name='signup'),
+    url(r'^edit/(?P<username>[\w\-]+)$', views.EditUserView.as_view(), name='edit'),
     path('', include('compositions.urls'))
 ]
 
