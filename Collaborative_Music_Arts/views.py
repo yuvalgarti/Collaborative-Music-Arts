@@ -21,5 +21,5 @@ class SignUpView(View):
         if form.is_valid():
             user = User.objects.create_user(request.POST['username'],email=request.POST['email'],password=request.POST['password'],first_name=request.POST['first_name'],last_name=request.POST['last_name'])
             user.save()
-            return redirect('index')
+            return redirect('login')
         return render(request, self.template_name, {'form': form})
