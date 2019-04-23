@@ -41,7 +41,7 @@ class CreateCompositionView(View):
         if form.is_valid():
             compo = form.save(commit=False)
             compo.save(user=request.user)
-            return redirect('show_composition',composition_id=compo.id)
+            return redirect('show_composition', composition_id=compo.id)
         return render(request, self.template_name, {'form': form})
 
 
@@ -60,7 +60,7 @@ class CreateVariationView(View):
             vari = form.save(commit=False)
             vari.save(user=request.user, composition_id=composition_id)
             form.save_m2m()
-            return redirect('show_variation',variation_id=vari.id)
+            return redirect('show_variation', variation_id=vari.id)
         return render(request, self.template_name, {'form': form, 'composition_id': kwargs['composition_id']})
 
 
@@ -78,7 +78,7 @@ class CreateTrackView(View):
         if form.is_valid():
             track = form.save(commit=False)
             track.save(user=request.user, composition_id=composition_id)
-            return redirect('show_composition',composition_id=composition_id)
+            return redirect('show_composition', composition_id=composition_id)
         return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
 
@@ -125,7 +125,7 @@ class DeleteTrackView(View):
         track = Track.objects.get(id=track_id)
         compo = Composition.objects.get(id=track.composition_id)
         if compo.creator.id != request.user.id:
-            return redirect('show_composition',composition_id=compo.id)
+            return redirect('show_composition', composition_id=compo.id)
         else:
             track.delete()
-            return redirect('show_composition',composition_id=compo.id)
+            return redirect('show_composition', composition_id=compo.id)
