@@ -20,12 +20,23 @@ class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'password-control'
     }))
-    re_type_password = forms.CharField(widget=forms.PasswordInput(attrs={
+    password_confirmation = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'password-control'
+
     }))
 
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        password_confirmation = self['password_confirmation'].data
+        if len(password) < 8:
+            raise ValidationError('Password too short')
+        if len(password) != len(password_confirmation):
+            raise ValidationError('Passwords don\'t match')
+        if False in [password[i] == password_confirmation[i] for i in range(len(password))]:
+            raise ValidationError('Passwords don\'t match')
+        return password
 
 
     class Meta:
         model = User
-        fields = ['username','first_name','last_name','email','password','re_type_password']
+        fields = ['username','first_name','last_name','email','password']
