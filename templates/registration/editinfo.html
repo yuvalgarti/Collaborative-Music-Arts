@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block Head %}
     {% load static %}
@@ -5,11 +6,11 @@
 {% endblock %}
 
 {% block Content %}
-     <form class="form-signin" method="post">
+    <form class="form-signin" method="post">
         {% csrf_token %}
         <div class="text-center">
-        <br><br><br><br><br>
-            <h1 class="h3 mb-3 font-weight-normal">Please Sign-Up:</h1>
+            <br><br><br><br><br>
+            <h1 class="h3 mb-3 font-weight-normal">Edit User Info:</h1>
 
             {% for field in form %}
 
