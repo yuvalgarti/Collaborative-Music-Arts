@@ -16,13 +16,16 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from django.urls import include
 from . import settings
+from . import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    url('accounts/signup', views.SignUpView.as_view(), name='signup'),
     path('', include('compositions.urls'))
 ]
 
