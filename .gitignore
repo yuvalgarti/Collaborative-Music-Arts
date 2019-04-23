@@ -2,3 +2,4 @@
 **/__pycache__
 **/media
 **/Collaborative_Music_Arts/__pycache__
+*.pyc
