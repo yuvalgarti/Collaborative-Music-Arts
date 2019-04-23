@@ -116,5 +116,16 @@ class DeleteCompositionView(View):
             return redirect('index')
         else:
             compo.delete()
-            print(Composition.objects.all())
+            return redirect('index')
+
+
+class DeleteTrackView(View):
+    def get(self, request, *args, **kwargs):
+        track_id = kwargs['track_id']
+        track = Track.objects.get(id=track_id)
+        compo = Composition.objects.get(id=track.composition_id)
+        if compo.creator.id != request.user.id:
+            return redirect('index')
+        else:
+            track.delete()
             return redirect('index')

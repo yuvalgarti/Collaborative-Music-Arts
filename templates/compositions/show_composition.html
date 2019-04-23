@@ -25,6 +25,10 @@
                     <audio controls>
                         <source src="{{ MEDIA_PREFIX }}{{ track.track_file }}" type="audio/mp3">
                     </audio>
+                    {% if composition.creator.id == user.id %}
+                        <a href="{% url 'delete_track' track.id %}"
+                           class="btn btn-sm btn-danger">Delete</a>
+                    {% endif %}
                 {% endfor %}
                 <br>
                 <h2> All available variations for this composition: </h2> <br>
