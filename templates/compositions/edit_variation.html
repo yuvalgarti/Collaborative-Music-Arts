@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block Title %}
+    Edit Variation
+{% endblock %}
+{% block Content %}
+    <form action="{% url 'edit_variation' variation_id %}" method="post">
+        {% csrf_token %}
+        <div class="text-center">
+            {% include 'base_form.html' %}
+        </div>
+    </form>
+{% endblock %}
