@@ -15,6 +15,7 @@ class EditVariationView(View):
         else:
             form = EditVariationForm(variation_id=variation_id, initial={'name': vari.name})
             return render(request, self.template_name, {'form': form, 'variation_id': variation_id})
+
     def post(self, request, *args, **kwargs):
         variation_id = kwargs['variation_id']
         form = EditVariationForm(request.POST, variation_id=variation_id)
