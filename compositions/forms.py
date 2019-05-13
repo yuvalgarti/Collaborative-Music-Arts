@@ -1,6 +1,6 @@
 import os
 from django import forms
-from .models import Composition, Variation, Track
+from .models import *
 from django.core.exceptions import ValidationError
 
 
