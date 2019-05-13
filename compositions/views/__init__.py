@@ -7,4 +7,5 @@ from .ShowCompositionView import *
 from .ShowVariationView import *
 from .DeleteCompositionView import *
 from .DeleteTrackView import *
+from .ForkVariationView import *
 from .EditVariationView import *
