@@ -6,6 +6,7 @@ from django.views.generic import TemplateView
 from ..forms import EditUserForm
 from django.contrib.auth.models import User
 from django.views import View
+from ..functionalities import *
 
 
 # Create your views here.
@@ -29,14 +30,17 @@ class EditUserView(View):
 
     def post(self, request, *args, **kwargs):
         form = EditUserForm(request.POST, request.FILES)
+        redirection = redirect('edit', kwargs['username'])
         if form.is_valid():
+            newUser = form.save(commit=False)
             user = User.objects.get(username=kwargs['username'])
-            user.email = request.POST['email']
-            if len(request.POST['password']) > 0:
-                user.set_password(request.POST['password'])
-                return redirect('login')
-            user.first_name = request.POST['first_name']
-            user.last_name = request.POST['last_name']
+            user.__setattr__('email',newUser.email)
+            user.__setattr__('first_name', newUser.first_name)
+            user.__setattr__('last_name', newUser.last_name)
+            if len(newUser.password) > 0:
+                user.set_password(newUser.password)
+                redirection = redirect('login')
+            else:
+                redirection = redirect('profile', username=kwargs['username'])
             user.save()
-            return redirect('profile', username=kwargs['username'])
-        return redirect('edit', kwargs['username'])
+        return redirection

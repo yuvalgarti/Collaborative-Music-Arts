@@ -8,9 +8,11 @@
             <div class="jumbotron">
                 <h1>{{ composition.name }}</h1>
                 <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i> <br>
-                <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for
+                {% if tracks.count > 0 %}
+                    <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for
                     this
                     Composition</a>
+                {% endif %}
                 <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this
                     Composition</a>
                 <br><br>
