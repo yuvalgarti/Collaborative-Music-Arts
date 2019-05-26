@@ -8,8 +8,6 @@ class DeleteTrackView(View):
         track_id = kwargs['track_id']
         track = Track.objects.get(id=track_id)
         compo = Composition.objects.get(id=track.composition_id)
-        if compo.creator.id != request.user.id:
-            return redirect('show_composition', composition_id=compo.id)
-        else:
+        if compo.creator.id == request.user.id:
             track.delete()
-            return redirect('show_composition', composition_id=compo.id)
+        return redirect('show_composition', composition_id=compo.id)

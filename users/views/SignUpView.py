@@ -19,6 +19,7 @@ class SignUpView(View):
         form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save(commit=False)
+            user.set_password(user.password)
             user.save()
             return redirect('login')
         return render(request, self.template_name, {'form': form})
