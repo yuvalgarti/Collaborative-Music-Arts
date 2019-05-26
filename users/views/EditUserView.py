@@ -30,17 +30,8 @@ class EditUserView(View):
 
     def post(self, request, *args, **kwargs):
         form = EditUserForm(request.POST, request.FILES)
-        redirection = redirect('edit', kwargs['username'])
         if form.is_valid():
             newUser = form.save(commit=False)
             user = User.objects.get(username=kwargs['username'])
-            user.__setattr__('email',newUser.email)
-            user.__setattr__('first_name', newUser.first_name)
-            user.__setattr__('last_name', newUser.last_name)
-            if len(newUser.password) > 0:
-                user.set_password(newUser.password)
-                redirection = redirect('login')
-            else:
-                redirection = redirect('profile', username=kwargs['username'])
-            user.save()
-        return redirection
+            return editUser(user,newUser)
+        return redirect('edit', kwargs['username'])

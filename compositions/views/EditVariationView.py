@@ -24,5 +24,6 @@ class EditVariationView(View):
             vari = Variation.objects.get(id=variation_id)
             vari.tracks.set(newVari.tracks)
             vari.save(user=request.user, composition_id=vari.composition.id)
+            form.save_m2m()
             return redirect('show_variation', variation_id=vari.id)
         return render(request, self.template_name, {'form': form, 'variation_id': variation_id})
