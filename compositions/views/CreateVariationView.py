@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from ..forms import VariationForm
+from ..models import Composition,Track
 from django.views import View
+
 
 
 class CreateVariationView(View):
@@ -8,8 +10,11 @@ class CreateVariationView(View):
 
     def get(self, request, *args, **kwargs):
         composition_id = kwargs['composition_id']
-        form = VariationForm(composition_id=composition_id)
-        return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
+        if(Track.objects.filter(composition__id=composition_id).count() < 1):
+            return redirect('show_composition', composition_id=composition_id)
+        else:
+            form = VariationForm(composition_id=composition_id)
+            return render(request, self.template_name, {'form': form, 'composition_id': composition_id})
 
     def post(self, request, *args, **kwargs):
         composition_id = kwargs['composition_id']

@@ -1,6 +1,6 @@
 import os
 from django import forms
-from django.core.exceptions import ValidationError
+from ..functionalities import *
 from django.contrib.auth.models import User
 
 
@@ -26,15 +26,7 @@ class SignUpForm(forms.ModelForm):
     }))
 
     def clean_password(self):
-        password = self.cleaned_data.get('password')
-        password_confirmation = self['password_confirmation'].data
-        if len(password) < 8:
-            raise ValidationError('Password too short')
-        if len(password) != len(password_confirmation):
-            raise ValidationError('Passwords don\'t match')
-        if False in [password[i] == password_confirmation[i] for i in range(len(password))]:
-            raise ValidationError('Passwords don\'t match')
-        return password
+        return checkPassword(self.cleaned_data.get('password'), self['password_confirmation'].data)
 
 
     class Meta:
