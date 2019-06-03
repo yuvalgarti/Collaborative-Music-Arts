@@ -27,5 +27,5 @@ class Variation(models.Model):
         self.composition = Composition.objects.get(id=composition_id)
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.name + ' (' + str(self.composition) + ') - ' + self.creator.username
+#    def __str__(self):
+ #       return self.name + ' (' + str(self.composition) + ') - ' + self.creator.username
