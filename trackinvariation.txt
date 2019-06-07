@@ -1,0 +1,11 @@
+add this model to the migrations initial file, after everytime you run 'makemigrations', before running migrate
+
+migrations.CreateModel(
+            name='TrackInVariation',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('track' ,models.ForeignKey(on_delete=models.CASCADE, to='compositions.Track')),
+                ('start_timing' , models.FloatField(default=0)),
+                ('stop_timing', models.FloatField(default=0)),
+            ],
+        ),
