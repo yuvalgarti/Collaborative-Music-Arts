@@ -4,7 +4,6 @@ from ..models import Composition,Track
 from django.views import View
 
 
-
 class CreateVariationView(View):
     template_name = 'compositions/create_variation.html'
 

@@ -16,19 +16,7 @@ class CreateModelsTest(TestCase):
             email="admin@example.com")
         self.client.force_login(self.user)
 
-    def test_create_composition(self):
-        response = self.client.post(reverse('create_composition'), {'name': 'compo1'})
-        show_composition_path = reverse('show_composition', kwargs={'composition_id': 1})
-        self.assertRedirects(response, show_composition_path)
-        response = self.client.get(show_composition_path)
-        self.assertEqual(response.status_code, 200)
 
-    def test_create_composition(self):
-        response = self.client.post(reverse('create_composition'), {'name': 'compo1'})
-        show_composition_path = reverse('show_composition', kwargs={'composition_id': 1})
-        self.assertRedirects(response, show_composition_path)
-        response = self.client.get(show_composition_path)
-        self.assertEqual(response.status_code, 200)
 
 """
     # Migration error

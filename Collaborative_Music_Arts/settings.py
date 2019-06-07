@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compositions',
-    'users'
+    'users',
+    'django_nose'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=compositions.forms, compositions.models, compositions.views,users.forms, users.models, users.views'
+]
