@@ -2,4 +2,9 @@ from .IndexTest import *
 from .CreateModelsTest import *
 from .LoginRequiredTest import *
 from .ReverseWithParams import *
-from .DeleteCompositionTest import *
+from .DeleteModelsTest import *
+from .CompositionTest import *
+from .ForkVariationTest import *
+from .ShowVariationTest import *
+from .ProfileTest import *
+from .EditVariationTest import *

@@ -134,5 +134,5 @@ LOGOUT_REDIRECT_URL = '/'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
-    '--cover-package=compositions.forms, compositions.models, compositions.views,users.forms, users.models, users.views'
+    '--cover-package=compositions.forms, compositions.views,users.forms, users.views'
 ]

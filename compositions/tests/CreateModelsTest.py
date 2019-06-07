@@ -8,19 +8,38 @@ from .ReverseWithParams import my_reverse
 
 
 class CreateModelsTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_superuser(
+    def setUpTestData(cls):
+        cls.client = Client()
+        cls.user = User.objects.create_superuser(
             username="admin",
             password="adminadmin",
             email="admin@example.com")
-        self.client.force_login(self.user)
+        cls.client.force_login(cls.user)
+        cls.composition = Composition(name='compo')
+        cls.composition.save(user=cls.user)
 
+    def test_create_composition_get(self):
+        response = self.client.get(reverse('create_composition'))
+        self.assertEqual(response.status_code, 200)
 
+    def test_create_composition_post(self):
+        response = self.client.post(reverse('create_composition'), {'name': 'compo1'})
+        created_compo = Composition.objects.filter(name='compo1')[0]
+        show_composition_path = reverse('show_composition', kwargs={'composition_id': created_compo.id})
+        self.assertRedirects(response, show_composition_path)
+        response = self.client.get(show_composition_path)
+        self.assertEqual(response.status_code, 200)
 
-"""
-    # Migration error
-    def test_create_variation(self):
+    def test_create_track_get(self):
+        response = self.client.get(reverse('create_track', kwargs={'composition_id': self.composition.id}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_track_post(self):
+        response = self.client.post(reverse('create_track', kwargs={'composition_id': self.composition.id}),
+                                    {'instrument': 'guitar', 'track_file': './static/guitar.wav'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_variation_post(self):
         compo = Composition()
         compo.save(user=self.user)
         track = Track()
@@ -31,4 +50,3 @@ class CreateModelsTest(TestCase):
         self.assertRedirects(response, show_variation_path)
         response = self.client.get(show_variation_path)
         self.assertEqual(response.status_code, 200)
-"""
