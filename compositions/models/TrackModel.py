@@ -1,12 +1,13 @@
 from djongo import models
 from django.contrib.auth import get_user_model
 from .CompositionModel import Composition
+from ..validators import validate_file_extension
 
 class Track(models.Model):
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     instrument = models.CharField(max_length=100)
     composition = models.ForeignKey(Composition, on_delete=models.DO_NOTHING)
-    track_file = models.FileField(upload_to='tracks')
+    track_file = models.FileField(upload_to='tracks',validators=[validate_file_extension])
 
     def save(self, *args, **kwargs):
         user = kwargs.pop('user')

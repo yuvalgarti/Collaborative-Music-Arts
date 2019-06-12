@@ -1,3 +1,4 @@
+
 import os
 from django import forms
 from ..models import *
@@ -13,9 +14,3 @@ class TrackForm(forms.ModelForm):
         model = Track
         fields = ['instrument', 'track_file']
 
-    def clean_file(self):
-        file = self.cleaned_data.get("track_file", False)
-        filetype = magic.from_buffer(file.read())
-        if not "XML" in filetype:
-            raise ValidationError("File is not XML.")
-        return file
