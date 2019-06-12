@@ -10,7 +10,6 @@ class ShowVariationView(TemplateView):
         variation_id = kwargs['variation_id']
         # context['tracks'] = Variation.objects.get(id=variation_id).tracks.all()
         variation = Variation.objects.get(id=variation_id)
-        print (variation.trackinvariation_set.all())
         context['track_in_variation'] = variation.trackinvariation_set.all()
         context['composition'] = variation.composition
         context['variation'] = variation

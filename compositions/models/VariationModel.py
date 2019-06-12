@@ -12,7 +12,7 @@ class Variation(models.Model):
     name = models.CharField(max_length=100)
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     composition = models.ForeignKey(Composition, on_delete=models.CASCADE)
-    tracks = models.ManyToManyField(Track, through='TrackInVariation')
+    tracks = models.ManyToManyField(Track, through='TrackInVariation', )
 
     def copy_variation(self, variation):
         self.name = variation.name
