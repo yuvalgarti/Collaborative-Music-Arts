@@ -10,8 +10,8 @@
                 <i> Creator: {{ composition.creator.username }}, Created at: {{ composition.created_at }} </i> <br>
                 {% if tracks.count > 0 %}
                     <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for
-                    this
-                    Composition</a>
+                        this
+                        Composition</a>
                 {% endif %}
                 <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this
                     Composition</a>
@@ -31,6 +31,12 @@
                         <a href="{% url 'delete_track' track.id %}"
                            class="btn btn-sm btn-danger">Delete</a>
                     {% endif %}
+                    {% if user not in track.liked_users %}
+                        <a class="btn btn-outline-dark" href="{% url 'like_button' track.id%}">{{ track.likes }} 👍🏻</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="{% url 'like_button' track.id%}">{{ track.likes }} 👍🏻</a>
+                    {% endif %}
+
                 {% endfor %}
                 <br>
                 <h2> All available variations for this composition: </h2> <br>

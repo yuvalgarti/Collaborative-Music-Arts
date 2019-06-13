@@ -1,6 +1,9 @@
 from djongo import models
 from django.contrib.auth import get_user_model
+
+
 from .CompositionModel import Composition
+
 
 class Track(models.Model):
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
