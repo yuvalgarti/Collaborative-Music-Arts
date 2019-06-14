@@ -7,5 +7,5 @@ class IndexView(View):
     template_name = 'compositions/index.html'
 
     def get(self, request):
-        context = {'compositions': Composition.objects.order_by('-created_at')}
+        context = {'compositions': Composition.objects.order_by('-created_at'), 'index': True}
         return render(request, self.template_name, context)

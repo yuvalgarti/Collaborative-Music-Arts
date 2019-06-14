@@ -1,3 +1,10 @@
+{% if index %}
+<form method="get" class="align-right" action="{% url 'search_compositions' %}">
+    <input type="text" name="phrase">
+    <input type="submit" class="btn btn-primary" value="Search">
+</form>
+{% endif %}
+<br>
 <div class="row">
     {% load static %}
     {% get_media_prefix as MEDIA_PREFIX %}
