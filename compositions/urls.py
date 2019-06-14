@@ -21,5 +21,6 @@ urlpatterns = [
         name='fork_variation'),
     url(r'^edit_variation/(?P<variation_id>[0-9]+)$', login_required(views.EditVariationView.as_view()),
         name='edit_variation'),
+    url(r'^like/(?P<track_id>[0-9]+)$', login_required(views.LikeButtonView.as_view()), name='like_button'),
     path('', views.IndexView.as_view(), name='index')
 ]
