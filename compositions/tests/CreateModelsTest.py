@@ -1,10 +1,8 @@
 from django.contrib.auth.models import User
-from django.db.models import QuerySet
 from django.test import Client, TestCase
 from django.urls import reverse
 
 from compositions.models import Composition, Track
-from .ReverseWithParams import my_reverse
 
 
 class CreateModelsTest(TestCase):

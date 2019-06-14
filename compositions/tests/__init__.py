@@ -8,3 +8,4 @@ from .ForkVariationTest import *
 from .ShowVariationTest import *
 from .ProfileTest import *
 from .EditVariationTest import *
+from .LikeTest import *
