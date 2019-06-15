@@ -9,8 +9,8 @@ class EditVariationView(View):
 
     def get(self, request, *args, **kwargs):
         variation_id = kwargs['variation_id']
-        vari= Variation.objects.get(id=variation_id)
-        if(vari.creator.id != request.user.id):
+        vari = Variation.objects.get(id=variation_id)
+        if vari.creator.id != request.user.id:
             return redirect('show_variation', variation_id=vari.id)
         else:
             print(vari.tracks.all())
@@ -25,6 +25,7 @@ class EditVariationView(View):
         if form.is_valid():
             vari = Variation.objects.get(id=variation_id)
             vari.tracks.set(form.cleaned_data['tracks'])
+            vari.name = form.cleaned_data['name']
             vari.save(user=request.user, composition_id=vari.composition.id)
             return redirect('show_variation', variation_id=vari.id)
         return render(request, self.template_name, {'form': form, 'variation_id': variation_id})
