@@ -12,3 +12,4 @@ from .EditVariationView import *
 from .RatingsView import *
 from .LikeButtonView import *
 from .SearchCompositionsView import *
+from .SaveTimingsView import *

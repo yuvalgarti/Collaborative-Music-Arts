@@ -15,10 +15,10 @@
 
 {% block Content %}
 
-        <p align="center">
-            <a style="font-size: xx-large" align="center" href='{% url 'show_composition' composition.id %}' >{{ composition.name }}</a>
+    <p align="center">
+        <a style="font-size: xx-large" align="center" href='{% url 'show_composition' composition.id %}' >{{ composition.name }}</a>
         <i style="font-size: xx-large"> - {{ variation.name }}</i>
-        </p>
+    </p>
     <div class="container">
         <div class="wrapper">
             <article class="post">
@@ -30,12 +30,12 @@
                                 <a href='{% url 'fork_variation' variation_id %}' class="btn btn-primary">
                                     <i>Fork</i>
                                 </a>
-        {% if variation.creator.id == user.id %}
-            <a href='{% url 'edit_variation' variation_id %}' class="btn btn-primary">
-                 <i>Edit</i>
-            </a>
-        {% endif %}
-      <span class="btn-pause btn btn-warning">
+                                {% if variation.creator.id == user.id %}
+                                    <a href='{% url 'edit_variation' variation_id %}' class="btn btn-primary">
+                                        <i>Edit</i>
+                                    </a>
+                                {% endif %}
+                                <span class="btn-pause btn btn-warning">
         <i class="fa fa-pause"></i>
       </span>
                                 <span class="btn-play btn btn-success">
@@ -70,14 +70,16 @@
         <i class="fa fa-arrows-h"></i>
       </span>
 
-
                                 <div class="btn-group">
       <span title="Download the current work as Wav file" class="btn btn-download btn-primary">
         <i class="fa fa-download"></i>
       </span>
+
                                 </div>
                             </div>
+
                         </div>
+
                         <div id="playlist"></div>
                         <div class="playlist-bottom-bar">
                             <form class="form-inline">
@@ -113,7 +115,12 @@
                                     <span class="btn btn-primary btn-seektotime">Seek !</span>
                                 </div>
                             </form>
-
+                            <br>
+                            <form id="timingsForm" class="form-inline" method="post" action="{% url 'save_timings' variation.id %}">
+                                {% csrf_token %}
+                                <input id="timings" name="timings" type="hidden" value="-1">
+                                <input class="btn btn-info" onclick="load_tracks()" type="submit" value="Save">
+                            </form>
                         </div>
 
                     </div>
@@ -130,21 +137,36 @@
     <script type="text/javascript" src="{% static 'js/mixer/waveform-playlist.var.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/mixer/web-audio-editor.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/mixer/emitter.js' %}"></script>
-    <script>
-        {%  get_media_prefix as MEDIA_PREFIX %}
-        playlist.load([
-            {% for track in track_in_variation %}
-                {
-                    'src': '{{ MEDIA_PREFIX }}/{{ track.track.track_file }}',
-                    'name': '{{ track.track.instrument }}'
-                },
-            {% endfor %}
-        ]).then(function () {
-            //can do stuff with the playlist.
+    <script>function load_tracks() {
 
-            //initialize the WAV exporter.
-            playlist.initExporter();
-        });
+        var timings = {};
+        for (var track in playlist.tracks){
+            timings[track] = [playlist.tracks[track].startTime, playlist.tracks[track].src];
+        }
+        $("#timings").val(JSON.stringify(timings));
+        $("#timingsForm").submit();
+    }
+
+    {%  get_media_prefix as MEDIA_PREFIX %}
+    playlist.load([
+        {% for track in track_in_variation %}
+            {
+                'src': '{{ MEDIA_PREFIX }}/{{ track.track.track_file }}',
+                'name': '{{ track.track.instrument }}',
+                'start': {{ track.start_timing }}
+            },
+        {% endfor %}
+    ]).then(function () {
+        //can do stuff with the playlist.
+        var timings = {};
+        for (var track in playlist.tracks){
+            timings[track] = [playlist.tracks[track].cueIn, playlist.tracks[track].src];
+        }
+        $("#timings").val(JSON.stringify(timings));
+        //initialize the WAV exporter.
+        playlist.initExporter();
+    });
+
     </script>
 
 {% endblock %}

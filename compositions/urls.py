@@ -23,5 +23,6 @@ urlpatterns = [
         name='edit_variation'),
     url(r'^like/(?P<track_id>[0-9]+)$', login_required(views.LikeButtonView.as_view()), name='like_button'),
     url(r'^search_compositions', login_required(views.SearchCompositionsView.as_view()), name='search_compositions'),
+    url(r'^save_timings/(?P<variation_id>[0-9]+)$', login_required(views.SaveTimingsView.as_view()), name='save_timings'),
     path('', views.IndexView.as_view(), name='index')
 ]
