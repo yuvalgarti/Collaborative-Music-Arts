@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
     path('create_composition', login_required(views.CreateCompositionView.as_view()), name='create_composition'),
-    path('rate_track', views.RatingView.as_view(), name='rating'),
     url(r'^create_variation/(?P<composition_id>[0-9]+)$', login_required(views.CreateVariationView.as_view()),
         name='create_variation'),
     url(r'^create_track/(?P<composition_id>[0-9]+)$',
