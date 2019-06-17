@@ -116,11 +116,14 @@
                                 </div>
                             </form>
                             <br>
-                            <form id="timingsForm" class="form-inline" method="post" action="{% url 'save_timings' variation.id %}">
-                                {% csrf_token %}
-                                <input id="timings" name="timings" type="hidden" value="-1">
-                                <input class="btn btn-info" onclick="load_tracks()" type="submit" value="Save">
-                            </form>
+                            {% if variation.creator.id == user.id %}
+                                <form id="timingsForm" class="form-inline" method="post" action="{% url 'save_timings' variation.id %}">
+                                    {% csrf_token %}
+                                    <input id="timings" name="timings" type="hidden" value="-1">
+                                    <input class="btn btn-info" onclick="load_tracks()" type="submit" value="Save">
+                                </form>
+                            {% endif %}
+
                         </div>
 
                     </div>
