@@ -4,7 +4,7 @@ from compositions.models import Composition, Variation
 from django.urls import reverse
 
 
-class ShowVariationTest(TestCase):
+class SearchCompositionsTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_superuser(

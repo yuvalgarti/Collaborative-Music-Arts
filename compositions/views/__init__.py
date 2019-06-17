@@ -9,6 +9,5 @@ from .DeleteCompositionView import *
 from .DeleteTrackView import *
 from .ForkVariationView import *
 from .EditVariationView import *
-from .RatingsView import *
 from .LikeButtonView import *
 from .SearchCompositionsView import *
