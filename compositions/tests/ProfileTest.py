@@ -15,4 +15,6 @@ class ProfileTest(TestCase):
 
     def test_profile(self):
         response = self.client.get(reverse('profile', kwargs={'username': self.user.username}))
+        self.assertEqual(response.context['username'], self.user.username)
+        self.assertEqual(len(response.context['compositions']), 0)
         self.assertEqual(response.status_code, 200)

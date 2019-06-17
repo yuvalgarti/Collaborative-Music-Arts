@@ -21,4 +21,5 @@ class ShowVariationTest(TestCase):
 
     def test_show_variation(self):
         response = self.client.get(reverse('show_variation', kwargs={'variation_id': self.variation.id}))
+        self.assertEqual(response.context['variation'].id, self.variation.id)
         self.assertEqual(response.status_code, 200)

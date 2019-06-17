@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
 from django.urls import reverse
+import os
 
+from Collaborative_Music_Arts import settings
 from compositions.models import Composition, Track
 
 

@@ -1,6 +1,10 @@
 from locust import HttpLocust, TaskSet, task
 
 
+# To run those tests, first start the server, then run the command:
+# locust -f stress.py --host=http://127.0.0.1:8000
+
+
 def login(l):
     response = l.client.get('/accounts/login/')
     csrftoken = response.cookies['csrftoken']
@@ -15,7 +19,15 @@ class WebsiteTasks(TaskSet):
 
     @task
     def index(self):
-        self.client.get("/")
+        self.client.get('/')
+
+    @task
+    def create_composition(self):
+        response = self.client.get('/create_composition')
+        csrftoken = response.cookies['csrftoken']
+        self.client.post('/create_composition',
+                         {'name': 'compo1'},
+                         headers={'X-CSRFToken': csrftoken})
 
 
 class WebsiteUser(HttpLocust):
