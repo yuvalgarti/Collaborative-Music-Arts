@@ -4,15 +4,15 @@ from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('create_composition', login_required(views.CreateCompositionView.as_view()), name='create_composition'),
+    path('create_project', login_required(views.CreateCompositionView.as_view()), name='create_composition'),
     url(r'^create_variation/(?P<composition_id>[0-9]+)$', login_required(views.CreateVariationView.as_view()),
         name='create_variation'),
     url(r'^create_track/(?P<composition_id>[0-9]+)$',
         login_required(views.CreateTrackView.as_view()), name='create_track'),
-    url(r'^composition/(?P<composition_id>[0-9]+)$', views.ShowCompositionView.as_view(), name='show_composition'),
+    url(r'^project/(?P<composition_id>[0-9]+)$', views.ShowCompositionView.as_view(), name='show_composition'),
     url(r'^variation/(?P<variation_id>[0-9]+)$', views.ShowVariationView.as_view(), name='show_variation'),
     url(r'^profile/(?P<username>[\w\-]+)$', views.ProfileView.as_view(), name='profile'),
-    url(r'^delete_composition/(?P<composition_id>[0-9]+)$', login_required(views.DeleteCompositionView.as_view()),
+    url(r'^delete_project/(?P<composition_id>[0-9]+)$', login_required(views.DeleteCompositionView.as_view()),
         name='delete_composition'),
     url(r'^delete_track/(?P<track_id>[0-9]+)$', login_required(views.DeleteTrackView.as_view()),
         name='delete_track'),

@@ -11,12 +11,12 @@
                 {% if tracks.count > 0 %}
                     <a class="btn btn-primary" href="{% url 'create_variation' composition.id %}">Create a Variation for
                         this
-                        Composition</a>
+                        Project</a>
                 {% endif %}
                 <a class="btn btn-primary" href="{% url 'create_track' composition.id %}">Add a Track for this
-                    Composition</a>
+                    Project</a>
                 <br><br>
-                <h2> All available tracks for this composition: </h2> <br>
+                <h2> All available tracks for this Project: </h2> <br>
 
                 {% for track in tracks %}
                     <h5> {{ track.instrument }} - <i> <a
@@ -39,7 +39,7 @@
 
                 {% endfor %}
                 <br>
-                <h2> All available variations for this composition: </h2> <br>
+                <h2> All available variations for this Project: </h2> <br>
 
                 {% for variation in variations %}
                     <div><h3><a href="{% url 'show_variation' variation.id %}">{{ variation.name }} </a> -
