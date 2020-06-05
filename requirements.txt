@@ -4,7 +4,7 @@ chardet==3.0.4
 Click==7.0
 coverage==4.5.3
 dataclasses==0.6
-Django==2.1.4
+Django==2.2.13
 django-nose==1.4.6
 djongo==1.2.31
 Flask==1.0.3
